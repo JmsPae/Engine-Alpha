@@ -80,16 +80,16 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)/Dependencies/glew-2.1.0/include;$(SolutionDir)/Dependencies/glfw-3.2.1/include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/bin/src/Release;$(SolutionDir)/Dependencies/glfw-3.2.1/bin/src/Debug;$(SolutionDir)/Dependencies/glew-2.1.0/lib/Release/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)/Dependencies/glfw-3.2.1/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Release;$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)/Dependencies/glew-2.1.0/include;$(SolutionDir)/Dependencies/glfw-3.2.1/include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/bin/src/Release;$(SolutionDir)/Dependencies/glfw-3.2.1/bin/src/Debug;$(SolutionDir)/Dependencies/glew-2.1.0/lib/Release/Win32;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)/Dependencies/glfw-3.2.1/include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Release;$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
