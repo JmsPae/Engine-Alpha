@@ -7,7 +7,7 @@
 namespace alpha {
 	class Window {
 	public:
-		Window(int windowWidth = 1280, int windowHeight = 720);
+		Window(int windowWidth = 1280, int windowHeight = 720, std::string windowName = "Engine Alpha");
 		~Window();
 
 		void Clear();

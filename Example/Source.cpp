@@ -1,4 +1,4 @@
-#include <EngineAlpha/Graphics/Window.h>
+#include <EngineAlpha/Window.h>
 
 int main() {
 	auto window = alpha::Window();

@@ -1,14 +1,14 @@
 #include "Window.h"
 
 namespace alpha {
-	Window::Window(int windowWidth, int windowHeight) {
+	Window::Window(int windowWidth, int windowHeight, std::string windowName) {
 		if (!glfwInit()) {
 			printf("ERROR: GLFW Failed to initialize!\n");
 			system("pause");
 			exit(EXIT_FAILURE);
 		}
 
-		m_glfwWindow = glfwCreateWindow(windowWidth, windowHeight, "Engine Alpha", NULL, NULL);
+		m_glfwWindow = glfwCreateWindow(windowWidth, windowHeight, windowName.c_str(), NULL, NULL);
 
 		if (!m_glfwWindow) {
 			printf("ERROR: GLFW Window Failed to create!\n");

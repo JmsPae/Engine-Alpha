@@ -19,10 +19,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineAlpha\Graphics\Window.h" />
+    <ClInclude Include="EngineAlpha\Window.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EngineAlpha\Graphics\Window.cpp">
+    <ClCompile Include="EngineAlpha\Window.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
   </ItemGroup>
