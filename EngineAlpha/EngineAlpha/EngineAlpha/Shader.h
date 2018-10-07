@@ -28,7 +28,17 @@ namespace alpha {
 		void Delete();
 
 		template<class T> void SendUniform(std::string name, T variable);
-		template<> void SendUniform(std::string name, float variable);
+		void SendUniform(std::string name, float variable);
+		void SendUniform(std::string name, int variable);
+		void SendUniform(std::string name, glm::vec2 variable);
+		void SendUniform(std::string name, glm::ivec2 variable);
+		void SendUniform(std::string name, glm::vec3 variable);
+		void SendUniform(std::string name, glm::ivec3 variable);
+		void SendUniform(std::string name, glm::vec4 variable);
+		void SendUniform(std::string name, glm::ivec4 variable);
+		void SendUniform(std::string name, glm::mat2 variable);
+		void SendUniform(std::string name, glm::mat3 variable);
+		void SendUniform(std::string name, glm::mat4 variable);
 
 		~Shader();
 

@@ -7,5 +7,5 @@ in VS_OUT {
 } fs_in;
 
 void main() {
-    Color = fs_in.Color;
+    Color = vec4(fs_in.Color);
 }

@@ -55,62 +55,73 @@ namespace alpha {
 		printf("Unsupported type!\n");
 	}
 
-	template<> void Shader::SendUniform(std::string name, float variable) {
+	void Shader::SendUniform(std::string name, float variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform1f(m_locations[name], variable);
 	}
 
-	template<> void Shader::SendUniform(std::string name, int variable) {
+	void Shader::SendUniform(std::string name, int variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform1i(m_locations[name], variable);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::vec2 variable) {
+	void Shader::SendUniform(std::string name, glm::vec2 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform2f(m_locations[name], variable.x, variable.y);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::ivec2 variable) {
+	void Shader::SendUniform(std::string name, glm::ivec2 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform2i(m_locations[name], variable.x, variable.y);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::vec3 variable) {
+	void Shader::SendUniform(std::string name, glm::vec3 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform3f(m_locations[name], variable.x, variable.y, variable.z);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::ivec3 variable) {
+	void Shader::SendUniform(std::string name, glm::ivec3 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform3i(m_locations[name], variable.x, variable.y, variable.z);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::mat2 variable) {
+	void Shader::SendUniform(std::string name, glm::vec4 variable) {
+		if (m_locations.find(name) == m_locations.end())
+			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
+		glUniform4f(m_locations[name], variable.x, variable.y, variable.z, variable.w);
+	}
+
+	void Shader::SendUniform(std::string name, glm::ivec4 variable) {
+		if (m_locations.find(name) == m_locations.end())
+			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
+		glUniform4i(m_locations[name], variable.x, variable.y, variable.z, variable.w);
+	}
+
+	void Shader::SendUniform(std::string name, glm::mat2 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniformMatrix2fv(m_locations[name], 1, GL_FALSE, &variable[0][0]);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::mat3 variable) {
+	void Shader::SendUniform(std::string name, glm::mat3 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniformMatrix3fv(m_locations[name], 1, GL_FALSE, &variable[0][0]);
 	}
 
-	template<> void Shader::SendUniform(std::string name, glm::mat4 variable) {
+	void Shader::SendUniform(std::string name, glm::mat4 variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniformMatrix4fv(m_locations[name], 1, GL_FALSE, &variable[0][0]);
 	}
 
 	Shader::~Shader() {
-		printf("Deleting...\n");
 		Delete();
 	}
 }

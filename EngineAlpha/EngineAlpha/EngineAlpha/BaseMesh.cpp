@@ -48,6 +48,5 @@ namespace alpha {
 	BaseMesh::~BaseMesh() {
 		glDeleteVertexArrays(1, &m_VAO);
 		glDeleteBuffers(1, &m_VBO);
-		printf("Deleted mesh \n");
 	}
 }
