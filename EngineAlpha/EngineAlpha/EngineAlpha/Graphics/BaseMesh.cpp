@@ -1,19 +1,25 @@
 #include "BaseMesh.h"
 
 namespace alpha {
-	BaseMesh::BaseMesh() {
+	BaseMesh::BaseMesh() { // Nothing is needed to be done here 
 		
 	}
 
 	void BaseMesh::SetMesh(Mesh & mesh) {
+		//If the VAO and VBO have not been created/been deleted (i.e. m_VAO == 0), generate VAO and VBO
 		if (!m_VAO) {
 			glGenVertexArrays(1, &m_VAO);
 			glGenBuffers(1, &m_VBO);
 		}
 
+	/*
+		Since the engine is only intended to handle displaying sprites/simple shapes,
+		and index buffer object would have little effect on performance.
+	*/
+
 		m_vertexCount = mesh.Positions.size();
 		std::vector<float> data;
-		for (size_t i = 0; i < mesh.Positions.size(); i++) {
+		for (size_t i = 0; i < mesh.Positions.size(); i++) { // Adds all the mesh information from the Mesh class into a single vector
 			data.push_back(mesh.Positions[i].x);
 			data.push_back(mesh.Positions[i].y);
 			data.push_back(mesh.Positions[i].z);
@@ -29,7 +35,7 @@ namespace alpha {
 
 		auto stride = sizeof(float) * (3 + 4);
 
-		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), data.data(), GL_STATIC_DRAW);
+		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), data.data(), GL_STATIC_DRAW); //Static draw since i dont intend to constantly change the mesh
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
 		glEnableVertexAttribArray(0);
 

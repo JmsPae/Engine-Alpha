@@ -12,9 +12,7 @@ namespace alpha {
 		std::string pth;
 		std::ifstream myfile(path);
 
-		while (std::getline(myfile, line)) {
-			pth += line + "\n";
-		}
+		while (std::getline(myfile, line)) { pth.append(line + "\n"); }
 		myfile.close();
 
 		m_shaders.push_back(glCreateShader(type));
@@ -47,15 +45,17 @@ namespace alpha {
 		glUseProgram(ProgramID);
 	}
 
-	void Shader::Delete() {
-		glDeleteProgram(ProgramID);
-	}
-
 	template<class T> void Shader::SendUniform(std::string name, T variable) {
 		printf("Unsupported type!\n");
 	}
 
 	void Shader::SendUniform(std::string name, float variable) {
+		if (m_locations.find(name) == m_locations.end())
+			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
+		glUniform1f(m_locations[name], variable);
+	}
+
+	void Shader::SendUniform(std::string name, double variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
 		glUniform1f(m_locations[name], variable);
@@ -122,6 +122,6 @@ namespace alpha {
 	}
 
 	Shader::~Shader() {
-		Delete();
+		glDeleteProgram(ProgramID);
 	}
 }

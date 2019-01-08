@@ -19,27 +19,43 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="EngineAlpha\BaseMesh.h" />
+    <ClInclude Include="EngineAlpha\Core\Game.h" />
+    <ClInclude Include="EngineAlpha\Engine.h" />
+    <ClInclude Include="EngineAlpha\Graphics\BaseMesh.h" />
     <ClInclude Include="EngineAlpha\Maths.h" />
-    <ClInclude Include="EngineAlpha\Mesh.h" />
-    <ClInclude Include="EngineAlpha\Window.h" />
-    <ClInclude Include="EngineAlpha\Shader.h" />
+    <ClInclude Include="EngineAlpha\Graphics\Mesh.h" />
+    <ClInclude Include="EngineAlpha\Graphics\Window.h" />
+    <ClInclude Include="EngineAlpha\Graphics\Shader.h" />
+    <ClInclude Include="EngineAlpha\Core\GameObject.h" />
+    <ClInclude Include="EngineAlpha\Core\Scene.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="EngineAlpha\BaseMesh.cpp">
+    <ClCompile Include="EngineAlpha\Graphics\BaseMesh.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="EngineAlpha\glad.c">
+    <ClCompile Include="EngineAlpha\Graphics\glad.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="EngineAlpha\Window.cpp">
+    <ClCompile Include="EngineAlpha\Graphics\Window.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="EngineAlpha\Shader.cpp">
+    <ClCompile Include="EngineAlpha\Graphics\Shader.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="EngineAlpha\Core\GameObject.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeaderFile>
+    </ClCompile>
+    <ClCompile Include="EngineAlpha\Core\Scene.cpp">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </PrecompiledHeaderFile>
     </ClCompile>
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -112,12 +128,13 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,7 +160,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
-      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -151,6 +168,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile />
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>

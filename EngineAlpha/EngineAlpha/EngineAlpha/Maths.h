@@ -5,7 +5,3 @@
 #include "glm/glm.hpp"
 #include "glm/gtx/transform.hpp"
 #include "glm/gtx/matrix_decompose.hpp"
-
-namespace alpha {
-	
-}

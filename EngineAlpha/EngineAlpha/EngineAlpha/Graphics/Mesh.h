@@ -2,7 +2,12 @@
 
 #include <vector>
 
-#include "Maths.h"
+#include "../Maths.h"
+
+/*
+	The Mesh class is the representation of a (technically 3d) mesh. Its the 
+	interface, so to speak, between the programmer and the BaseMesh class.
+*/
 
 namespace alpha {
 	class Mesh {

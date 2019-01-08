@@ -2,8 +2,13 @@
 
 #include <glad/glad.h>
 
-#include "Maths.h"
 #include "Mesh.h"
+
+/*
+	The BaseMesh class takes the representation given to it via the Mesh Class
+	and sends the representation to the GPU and then handles thew IDs provided 
+	by the gpu
+*/
 
 namespace alpha {
 	class BaseMesh {
