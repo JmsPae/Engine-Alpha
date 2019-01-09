@@ -1,7 +1,7 @@
 #include "Window.h"
 
 namespace alpha {
-	Window::Window(int windowWidth, int windowHeight, std::string windowName) {
+	Window::Window(int windowWidth, int windowHeight, std::string windowName) : SizeX(windowWidth), SizeY(windowHeight) {
 		if (!glfwInit()) {
 			printf("ERROR: GLFW Failed to initialize!\n");
 			std::cin.get();
@@ -32,10 +32,9 @@ namespace alpha {
 	}
 
 	void Window::Clear() {
-		int x, y;
-		glfwGetWindowSize(m_glfwWindow, &x, &y);
+		glfwGetWindowSize(m_glfwWindow, &SizeX, &SizeY);
 
-		glViewport(0, 0, x, y);
+		glViewport(0, 0, SizeX, SizeY);
 		glClearColor(0.8f, 0.6f, 1.0f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}

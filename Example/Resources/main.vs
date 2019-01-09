@@ -5,6 +5,8 @@ layout (location = 1) in vec4 Color;
 
 uniform float Timer;
 uniform mat4 Transform;
+uniform mat4 View;
+uniform mat4 Projection;
 
 out VS_OUT {
     vec4 Color;
@@ -12,5 +14,5 @@ out VS_OUT {
 
 void main() {
     vs_out.Color = vec4(Color.r * sin(Timer)*0.5+0.5, Color.g * cos(Timer)*0.5+0.5, Color.b * sin(Timer)*0.5+0.5, Color.a);
-    gl_Position = Transform * vec4(Position, 1);
+    gl_Position = Projection * View * (Transform * vec4(Position, 1));
 }

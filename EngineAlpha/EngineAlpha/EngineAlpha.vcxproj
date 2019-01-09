@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineAlpha\Graphics\Camera.h" />
     <ClInclude Include="EngineAlpha\Components\Component.h" />
     <ClInclude Include="EngineAlpha\Components\TestComponent.h" />
     <ClInclude Include="EngineAlpha\Core\Game.h" />
@@ -30,9 +31,10 @@
     <ClInclude Include="EngineAlpha\Graphics\Shader.h" />
     <ClInclude Include="EngineAlpha\Core\GameObject.h" />
     <ClInclude Include="EngineAlpha\Core\Scene.h" />
-    <ClInclude Include="EngineAlpha\Components\SpriteComponent.h" />
+    <ClInclude Include="EngineAlpha\Components\QuadComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
     <ClCompile Include="EngineAlpha\Core\GameObject.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\BaseMesh.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
@@ -55,7 +57,7 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="EngineAlpha\Components\SpriteComponent.cpp" />
+    <ClCompile Include="EngineAlpha\Components\QuadComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

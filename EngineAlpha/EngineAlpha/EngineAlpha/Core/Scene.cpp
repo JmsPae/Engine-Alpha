@@ -18,7 +18,7 @@ namespace alpha {
 				m_gameObjectRemovalQueue.push_back(m_gameObjects[i]);
 		}
 
-		while (m_gameObjectRemovalQueue.size() > 0) { //TODO
+		while (m_gameObjectRemovalQueue.size() > 0) {
 			m_gameObjects.erase(std::find(m_gameObjects.begin(), m_gameObjects.end(), m_gameObjectRemovalQueue[0]));
 			m_gameObjectRemovalQueue.erase(m_gameObjectRemovalQueue.begin());
 		}
@@ -32,10 +32,6 @@ namespace alpha {
 	}
 
 	Scene::~Scene() {
-		for (size_t i = 0; i < m_gameObjects.size(); i++) {
-			if (m_gameObjects[i])
-				delete m_gameObjects[i];
-		}
-		m_gameObjects.clear();
+
 	}
 }

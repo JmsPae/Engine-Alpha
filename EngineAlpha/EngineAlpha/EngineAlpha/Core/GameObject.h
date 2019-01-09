@@ -5,6 +5,8 @@
 #include "../Components/Component.h"
 
 namespace alpha {
+	class Component;
+
 	class GameObject {
 	public:
 		GameObject(glm::vec2 position = glm::vec2(0), float rotation = 0.f);
@@ -21,8 +23,9 @@ namespace alpha {
 
 		float Rotation;
 		glm::vec2 Position;
+		glm::mat4 Transform;
 	private:
-		glm::mat4 m_transform;
+		
 
 		std::vector<Component*> m_components;
 		std::vector<Component*> m_componentRemovalQueue;

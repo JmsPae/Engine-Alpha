@@ -29,25 +29,31 @@ public:
 	}
 
 	void Update(float dt) override {
+		m_testObject.Rotation += dt;
 		m_scene.Update(dt);
 	}
 
 	void Draw() override {
 		m_shader->Bind();
 
-		m_shader->SendUniform("Timer", this->Time);
+		m_shader->SendUniform("Timer", this->Time * 0.1f);
 		m_shader->SendUniform("Transform", glm::translate(glm::vec3(0.5, 0, 0)));
-		
-		m_scene.Draw(*m_shader);
+
+		m_camera.Position.x = sinf(this->Time);
+		m_camera.Draw(*m_shader, (float)GameWindow->SizeX / (float)GameWindow->SizeY);
 
 		m_meshRenderer.Draw();
+
+		m_scene.Draw(*m_shader);
 	}
 
 private:
+	alpha::Camera m_camera;
+
 	alpha::Scene m_scene;
 
 	alpha::GameObject m_testObject;
-	TestComponent m_testComponent;
+	alpha::QuadComponent m_testComponent;
 
 	alpha::Shader *m_shader;
 

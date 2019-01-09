@@ -17,6 +17,7 @@ namespace alpha {
 		void PollEvents();
 
 		bool IsOpen();
+		int SizeX, SizeY;
 	private:
 		GLFWwindow *m_glfwWindow;
 	};
