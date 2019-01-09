@@ -1,10 +1,15 @@
 #include <EngineAlpha/Engine.h>
 
+#include <EngineAlpha/Components/TestComponent.h>
+
 class MainGame : public alpha::Game {
 public:
-	MainGame() {}
+	MainGame() {
+		
+	}
 
 	void Init() override {
+		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");
 
 		auto mesh = alpha::Mesh();
@@ -17,10 +22,14 @@ public:
 		mesh.AddColor({ 0, 0, 1, 1 });
 
 		m_meshRenderer.SetMesh(mesh);
+
+		m_testObject = alpha::GameObject();
+		m_testObject.AddComponent(&m_testComponent);
+		m_scene.AddGameObject(m_testObject);
 	}
 
 	void Update(float dt) override {
-		printf("%f \n", 1.f/dt);
+		m_scene.Update(dt);
 	}
 
 	void Draw() override {
@@ -29,10 +38,17 @@ public:
 		m_shader->SendUniform("Timer", this->Time);
 		m_shader->SendUniform("Transform", glm::translate(glm::vec3(0.5, 0, 0)));
 		
+		m_scene.Draw(*m_shader);
+
 		m_meshRenderer.Draw();
 	}
 
 private:
+	alpha::Scene m_scene;
+
+	alpha::GameObject m_testObject;
+	TestComponent m_testComponent;
+
 	alpha::Shader *m_shader;
 
 	alpha::BaseMesh m_meshRenderer;

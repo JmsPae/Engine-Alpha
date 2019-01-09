@@ -7,3 +7,5 @@
 #include "Graphics/BaseMesh.h"
 #include "Graphics/Shader.h"
 #include "Graphics/Window.h"
+
+#include "Core/Scene.h"

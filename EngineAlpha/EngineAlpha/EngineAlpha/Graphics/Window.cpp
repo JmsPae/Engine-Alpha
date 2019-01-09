@@ -24,6 +24,7 @@ namespace alpha {
 			glfwTerminate();
 			exit(EXIT_FAILURE);
 		}
+		glfwSwapInterval(0);
 	}
 
 	Window::~Window() {

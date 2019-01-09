@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineAlpha\Components\Component.h" />
+    <ClInclude Include="EngineAlpha\Components\TestComponent.h" />
     <ClInclude Include="EngineAlpha\Core\Game.h" />
     <ClInclude Include="EngineAlpha\Engine.h" />
     <ClInclude Include="EngineAlpha\Graphics\BaseMesh.h" />
@@ -28,8 +30,10 @@
     <ClInclude Include="EngineAlpha\Graphics\Shader.h" />
     <ClInclude Include="EngineAlpha\Core\GameObject.h" />
     <ClInclude Include="EngineAlpha\Core\Scene.h" />
+    <ClInclude Include="EngineAlpha\Components\SpriteComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EngineAlpha\Core\GameObject.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\BaseMesh.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
@@ -45,18 +49,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="EngineAlpha\Core\GameObject.cpp">
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-      </PrecompiledHeaderFile>
-      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-      </PrecompiledHeaderFile>
-    </ClCompile>
     <ClCompile Include="EngineAlpha\Core\Scene.cpp">
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
       </PrecompiledHeaderFile>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
       </PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="EngineAlpha\Components\SpriteComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

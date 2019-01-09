@@ -12,11 +12,20 @@ namespace alpha {
 		void Start() {
 			Init();
 
-			float LastTime = 0;
+			int TotalFrames = 0;
+			float LastTime = 0, FrameTimer = 0;
 			while (GameWindow->IsOpen()) {
-				Time = ((double)clock() / CLOCKS_PER_SEC);
+				Time = glfwGetTime();
 				float dt = Time - LastTime;
 				LastTime = Time;
+
+				FrameTimer += dt;
+				TotalFrames++;
+				if (FrameTimer >= 1) {
+					printf("%f FPS | %f MS \n", (float)TotalFrames / FrameTimer, (FrameTimer / (float)TotalFrames) * 1000.f);
+					TotalFrames = 0;
+					FrameTimer = 0;
+				}
 
 				GameWindow->PollEvents();
 
