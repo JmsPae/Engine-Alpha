@@ -32,6 +32,7 @@
     <ClInclude Include="EngineAlpha\Core\GameObject.h" />
     <ClInclude Include="EngineAlpha\Core\Scene.h" />
     <ClInclude Include="EngineAlpha\Components\QuadComponent.h" />
+    <ClInclude Include="EngineAlpha\Graphics\Texture.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
@@ -58,6 +59,7 @@
       </PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="EngineAlpha\Components\QuadComponent.cpp" />
+    <ClCompile Include="EngineAlpha\Graphics\Texture.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -113,7 +115,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\James\Documents\GitHub\Engine-Alpha\EngineAlpha\EngineAlpha;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)/EngineAlpha;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Release;$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -121,7 +123,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\James\Documents\GitHub\Engine-Alpha\EngineAlpha\EngineAlpha;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)/EngineAlpha;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Release;$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

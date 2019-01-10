@@ -8,6 +8,8 @@ namespace alpha {
 			exit(EXIT_FAILURE);
 		}
 
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 		m_glfwWindow = glfwCreateWindow(windowWidth, windowHeight, windowName.c_str(), NULL, NULL);
 
 		if (!m_glfwWindow) {
@@ -24,6 +26,11 @@ namespace alpha {
 			glfwTerminate();
 			exit(EXIT_FAILURE);
 		}
+
+		glEnable(GL_TEXTURE);
+		glEnable(GL_BLEND);
+		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
 		glfwSwapInterval(0);
 	}
 

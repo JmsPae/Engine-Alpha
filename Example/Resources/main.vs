@@ -13,6 +13,6 @@ out VS_OUT {
 } vs_out;
 
 void main() {
-    vs_out.Color = vec4(Color.r * sin(Timer)*0.5+0.5, Color.g * cos(Timer)*0.5+0.5, Color.b * sin(Timer)*0.5+0.5, Color.a);
+    vs_out.Color = Color;
     gl_Position = Projection * View * (Transform * vec4(Position, 1));
 }
