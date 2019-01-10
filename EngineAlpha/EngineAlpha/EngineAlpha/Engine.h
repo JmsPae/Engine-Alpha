@@ -8,6 +8,8 @@
 #include "Graphics/Shader.h"
 #include "Graphics/Window.h"
 #include "Graphics/Camera.h"
+#include "Graphics/Image.h"
+#include "Graphics/Texture.h"
 
 #include "Core/Scene.h"
 

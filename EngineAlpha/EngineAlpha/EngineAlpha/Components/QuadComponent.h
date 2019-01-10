@@ -18,6 +18,13 @@ namespace alpha {
 			mesh.AddPosition({ Size.x / 2, -Size.y / 2, 0 });
 			mesh.AddPosition({ -Size.x / 2, -Size.y / 2, 0 });
 
+			mesh.AddUv({ 0, 0 });
+			mesh.AddUv({ 0, 1 });
+			mesh.AddUv({ 1, 1 });
+			mesh.AddUv({ 1, 1 });
+			mesh.AddUv({ 1, 0 });
+			mesh.AddUv({ 0, 0 });
+
 			for (size_t i = 0; i < 6; i++)
 				mesh.AddColor(glm::vec4(1));
 

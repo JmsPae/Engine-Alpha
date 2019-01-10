@@ -5,12 +5,14 @@
 class MainGame : public alpha::Game {
 public:
 	MainGame() {
-		
+		m_image = alpha::Image("robo1.png");
 	}
 
 	void Init() override {
 		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");
+
+		m_texture.SetImage(m_image);
 
 		m_testObject = alpha::GameObject();
 		m_testObject.AddComponent(&m_testComponent);
@@ -19,6 +21,7 @@ public:
 
 	void Update(float dt) override {
 		m_testObject.Rotation = sin(this->Time * 2) * 0.5;
+		m_testObject.Position.y = 0.5f;
 		m_scene.Update(dt);
 	}
 
@@ -29,11 +32,14 @@ public:
 		m_shader->SendUniform("Transform", glm::translate(glm::vec3(0.5, 0, 0)));
 
 		m_camera.Draw(*m_shader, (float)GameWindow->SizeX / (float)GameWindow->SizeY);
-
-		m_scene.Draw(*m_shader);
+		m_texture.Bind();
+		m_testObject.Draw(*m_shader);
 	}
 
 private:
+	alpha::Image m_image;
+	alpha::Texture m_texture;
+
 	alpha::Camera m_camera;
 
 	alpha::Scene m_scene;

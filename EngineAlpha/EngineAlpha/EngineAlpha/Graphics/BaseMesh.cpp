@@ -28,19 +28,25 @@ namespace alpha {
 			data.push_back(mesh.Colors[i].g);
 			data.push_back(mesh.Colors[i].b);
 			data.push_back(mesh.Colors[i].a);
+
+			data.push_back(mesh.Uvs[i].x);
+			data.push_back(mesh.Uvs[i].y);
 		}
 
 		glBindVertexArray(m_VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 
-		auto stride = sizeof(float) * (3 + 4);
+		auto stride = sizeof(float) * (3 + 4 + 2);
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), data.data(), GL_STATIC_DRAW); //Static draw since i dont intend to constantly change the mesh
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);
 		glEnableVertexAttribArray(0);
 
-		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, stride, (void*)(sizeof(float)*3));
+		glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, stride, (void*)(sizeof(float) * 3));
 		glEnableVertexAttribArray(1);
+
+		glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, stride, (void*)(sizeof(float) * 7));
+		glEnableVertexAttribArray(2);
 
 		glBindBuffer(GL_ARRAY_BUFFER, 0);
 		glBindVertexArray(0);

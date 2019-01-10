@@ -23,7 +23,7 @@ namespace alpha {
 			if (m_components[i])
 				m_components[i]->Update(dt);
 		}
-		Transform = glm::rotate(Rotation, glm::vec3(0, 0, 1)) * glm::translate(glm::vec3(Position, 0));
+		Transform = glm::translate(glm::vec3(Position, 0)) * glm::rotate(Rotation, glm::vec3(0, 0, 1));
 	}
 
 	void GameObject::Draw(Shader &shader) {

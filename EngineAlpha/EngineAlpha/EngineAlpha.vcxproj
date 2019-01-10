@@ -25,6 +25,7 @@
     <ClInclude Include="EngineAlpha\Core\Game.h" />
     <ClInclude Include="EngineAlpha\Engine.h" />
     <ClInclude Include="EngineAlpha\Graphics\BaseMesh.h" />
+    <ClInclude Include="EngineAlpha\Graphics\stb_img.h" />
     <ClInclude Include="EngineAlpha\Maths.h" />
     <ClInclude Include="EngineAlpha\Graphics\Mesh.h" />
     <ClInclude Include="EngineAlpha\Graphics\Window.h" />
@@ -33,6 +34,7 @@
     <ClInclude Include="EngineAlpha\Core\Scene.h" />
     <ClInclude Include="EngineAlpha\Components\QuadComponent.h" />
     <ClInclude Include="EngineAlpha\Graphics\Texture.h" />
+    <ClInclude Include="EngineAlpha\Graphics\Image.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
@@ -45,6 +47,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="EngineAlpha\Graphics\stb_image.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Window.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
     </ClCompile>
@@ -60,6 +63,7 @@
     </ClCompile>
     <ClCompile Include="EngineAlpha\Components\QuadComponent.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Texture.cpp" />
+    <ClCompile Include="EngineAlpha\Graphics\Image.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
