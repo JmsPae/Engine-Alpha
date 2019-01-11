@@ -16,6 +16,8 @@ namespace alpha {
 		void SwapBuffers();
 		void PollEvents();
 
+		GLFWwindow *GetGLFWWindow();
+
 		bool IsOpen();
 		int SizeX, SizeY;
 	private:

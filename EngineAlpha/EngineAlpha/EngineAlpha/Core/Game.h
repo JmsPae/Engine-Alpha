@@ -3,6 +3,7 @@
 #include <time.h>
 
 #include "../Graphics/Window.h"
+#include "InputManager.h"
 
 namespace alpha {
 	class Game {
@@ -38,8 +39,9 @@ namespace alpha {
 				GameWindow->SwapBuffers();
 
 			}
-			Finish();
 		}
+
+		~Game() { Finish(); }
 
 		virtual void Init() {}
 		virtual void Update(float dt) {}
@@ -47,6 +49,7 @@ namespace alpha {
 		virtual void Finish() {}
 	protected:
 		Window *GameWindow;
+		InputManager InputManager;
 		double Time;
 	};
 

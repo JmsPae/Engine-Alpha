@@ -54,6 +54,10 @@ namespace alpha {
 		glfwPollEvents();
 	}
 
+	GLFWwindow *Window::GetGLFWWindow() {
+		return m_glfwWindow;
+	}
+
 	bool Window::IsOpen() {
 		return !glfwWindowShouldClose(m_glfwWindow);
 	}

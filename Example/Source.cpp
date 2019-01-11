@@ -6,9 +6,14 @@ class MainGame : public alpha::Game {
 public:
 	MainGame() {
 		m_image = alpha::Image("robo1.png");
+
+		
 	}
 
 	void Init() override {
+		InputManager = alpha::InputManager(GameWindow);
+		InputManager.AddInput("Right", ALPHA_KEY_D, ALPHA_KEY_A);
+
 		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");
 
@@ -20,6 +25,8 @@ public:
 	}
 
 	void Update(float dt) override {
+		printf("%i\n", InputManager.GetInput("Right"));
+
 		m_testObject.Rotation = sin(this->Time * 2) * 0.5;
 		m_testObject.Position.y = 0.5f;
 		m_scene.Update(dt);
