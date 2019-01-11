@@ -3,6 +3,7 @@
 #include "Maths.h"
 
 #include "Core/Game.h"
+#include "Core/ResourceManager.h"
 
 #include "Graphics/BaseMesh.h"
 #include "Graphics/Shader.h"

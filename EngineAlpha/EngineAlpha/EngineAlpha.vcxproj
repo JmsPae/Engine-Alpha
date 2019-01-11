@@ -36,6 +36,7 @@
     <ClInclude Include="EngineAlpha\Graphics\Texture.h" />
     <ClInclude Include="EngineAlpha\Graphics\Image.h" />
     <ClInclude Include="EngineAlpha\Core\InputManager.h" />
+    <ClInclude Include="EngineAlpha\Core\ResourceManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
@@ -66,6 +67,7 @@
     <ClCompile Include="EngineAlpha\Graphics\Texture.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Image.cpp" />
     <ClCompile Include="EngineAlpha\Core\InputManager.cpp" />
+    <ClCompile Include="EngineAlpha\Core\ResourceManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

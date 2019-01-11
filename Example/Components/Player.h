@@ -4,12 +4,13 @@
 
 class Player : public alpha::Component {
 public:
-	Player(alpha::) {
+	Player(alpha::InputManager &inputManager) : inputManager(&inputManager) {
 
 	}
 
 	void Update(float dt) override {
-		if (glfwGetKey(window, GLFW_KEY_E))
+		Parent->Rotation -= (float)inputManager->GetInput("Right") * dt;
+		Parent->Position += glm::vec2(cos(Parent->Rotation + glm::radians(90.f)), sin(Parent->Rotation + glm::radians(90.f))) * dt * 0.5f * (float)inputManager->GetInput("Forward");
 	}
 
 	~Player() {
@@ -17,5 +18,5 @@ public:
 	}
 
 private:
-
+	alpha::InputManager *inputManager;
 };

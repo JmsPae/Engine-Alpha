@@ -42,7 +42,7 @@ namespace alpha {
 		glfwGetWindowSize(m_glfwWindow, &SizeX, &SizeY);
 
 		glViewport(0, 0, SizeX, SizeY);
-		glClearColor(0.8f, 0.6f, 1.0f, 1.0f);
+		glClearColor(.5f, .5f, .5f, 1.0f);
 		glClear(GL_COLOR_BUFFER_BIT);
 	}
 
