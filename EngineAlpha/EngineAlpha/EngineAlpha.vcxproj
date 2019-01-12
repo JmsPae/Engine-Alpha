@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineAlpha\Components\BaseColliderComponent.h" />
     <ClInclude Include="EngineAlpha\Graphics\Camera.h" />
     <ClInclude Include="EngineAlpha\Components\Component.h" />
     <ClInclude Include="EngineAlpha\Components\TestComponent.h" />
@@ -37,8 +38,11 @@
     <ClInclude Include="EngineAlpha\Graphics\Image.h" />
     <ClInclude Include="EngineAlpha\Core\InputManager.h" />
     <ClInclude Include="EngineAlpha\Core\ResourceManager.h" />
+    <ClInclude Include="EngineAlpha\Physics\PhysicsWorld.h" />
+    <ClInclude Include="EngineAlpha\Components\QuadColliderComponent.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EngineAlpha\Components\BaseColliderComponent.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
     <ClCompile Include="EngineAlpha\Core\GameObject.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\BaseMesh.cpp">
@@ -68,6 +72,8 @@
     <ClCompile Include="EngineAlpha\Graphics\Image.cpp" />
     <ClCompile Include="EngineAlpha\Core\InputManager.cpp" />
     <ClCompile Include="EngineAlpha\Core\ResourceManager.cpp" />
+    <ClCompile Include="EngineAlpha\Physics\PhysicsWorld.cpp" />
+    <ClCompile Include="EngineAlpha\Components\QuadColliderComponent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
@@ -124,7 +130,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
     <IncludePath>$(SolutionDir)/EngineAlpha;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Debug;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)/Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -132,7 +138,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(SolutionDir)/EngineAlpha;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)/Dependencies/glfw-3.2.1/libs/Release;$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)/Dependencies;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -152,7 +158,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;glfw3-d.lib;Box2D-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -188,7 +194,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>glu32.lib;opengl32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glu32.lib;opengl32.lib;glfw3.lib;Box2D.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

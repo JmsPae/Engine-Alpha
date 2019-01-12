@@ -5,16 +5,9 @@ namespace alpha {
 		
 	}
 
-	void GameObject::_AddedToScene() {
-		for (size_t i = 0; i < m_components.size(); i++) {
-			if (m_components[i]) {
-				m_components[i]->_SetParent(this);
-				m_components[i]->Init();
-			}
-		}
-	}
-
 	void GameObject::AddComponent(Component *component) {
+		component->_SetParent(this);
+		component->Init();
 		m_components.push_back(component);
 	}
 

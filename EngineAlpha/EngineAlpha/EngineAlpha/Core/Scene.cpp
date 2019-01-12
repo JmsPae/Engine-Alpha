@@ -7,7 +7,6 @@ namespace alpha {
 
 	void Scene::AddGameObject(GameObject &object) {
 		m_gameObjects.push_back(&object);
-		object._AddedToScene();
 	}
 
 	void Scene::Update(float dt) {

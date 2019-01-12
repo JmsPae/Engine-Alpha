@@ -11,8 +11,6 @@ namespace alpha {
 	public:
 		GameObject(glm::vec2 position = glm::vec2(0), float rotation = 0.f);
 
-		void _AddedToScene();
-
 		void AddComponent(Component *component);
 
 		void Update(float dt);

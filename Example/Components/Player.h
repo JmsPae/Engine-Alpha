@@ -18,8 +18,9 @@ namespace game {
 			/*Parent->Rotation -= (float)inputManager->GetInput("Right") * dt;
 			Parent->Position += glm::vec2(cos(Parent->Rotation + glm::radians(90.f)), sin(Parent->Rotation + glm::radians(90.f))) * dt * 0.5f * (float)inputManager->GetInput("Forward");*/
 		
-			Move((float)inputManager->GetInput("Forward") * dt * 2);
-			Rotation((float)inputManager->GetInput("Right") * dt * 5);
+			SetMove((float)inputManager->GetInput("Forward") * dt * 2);
+			SetRotation((float)inputManager->GetInput("Right") * dt * 5);
+			SetTurretRotation((float)inputManager->GetInput("TurretRight") * dt * 10);
 		}
 
 		~Player() {

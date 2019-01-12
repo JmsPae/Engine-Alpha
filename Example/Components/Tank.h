@@ -17,11 +17,13 @@ namespace game {
 
 		float Health;
 	protected:
-		float MoveVelocity, TankRotation, TurretRotation;
+		float Velocity, TurretRotation;
 
-		void Move(float velocity);
-		void Rotation(float rot);
+		void SetMove(float velocity);
+		void SetRotation(float rot);
+		void SetTurretRotation(float rot);
 	private:
 		alpha::GameObject m_turretObject;
+		alpha::QuadColliderComponent *m_colliderComponent;
 	};
 }

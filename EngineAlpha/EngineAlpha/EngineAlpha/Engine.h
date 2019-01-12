@@ -3,6 +3,7 @@
 #include "Maths.h"
 
 #include "Core/Game.h"
+#include "Core/Scene.h"
 #include "Core/ResourceManager.h"
 
 #include "Graphics/BaseMesh.h"
@@ -12,6 +13,7 @@
 #include "Graphics/Image.h"
 #include "Graphics/Texture.h"
 
-#include "Core/Scene.h"
-
 #include "Components/QuadComponent.h"
+#include "Components/QuadColliderComponent.h"
+
+#include "Physics/PhysicsWorld.h"
