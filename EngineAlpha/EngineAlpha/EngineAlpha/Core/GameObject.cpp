@@ -41,5 +41,10 @@ namespace alpha {
 	}
 
 	GameObject::~GameObject() {
+		for (size_t i = 0; i < m_components.size(); i++) {
+			if (m_components[i]) {
+				delete m_components[i];
+			}
+		}
 	}
 }

@@ -17,22 +17,21 @@ public:
 		alpha::ResourceManager::Textures["tank1_t"].SetImage(alpha::ResourceManager::Images["tank1_t"]);
 
 		InputManager = alpha::InputManager(GameWindow);
-		InputManager.AddInput("Right", ALPHA_KEY_D, ALPHA_KEY_A);
+		InputManager.AddInput("Right", ALPHA_KEY_A, ALPHA_KEY_D);
 		InputManager.AddInput("Forward", ALPHA_KEY_W, ALPHA_KEY_S);
 
 		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");
 
 		m_testObject = alpha::GameObject();
-		m_testObject.AddComponent(&m_testComponent);
-		m_testObject.AddComponent(new Player(InputManager));
+		m_testObject.AddComponent(new alpha::QuadComponent());
+		m_testObject.AddComponent(new game::Player(InputManager));
 		m_scene.AddGameObject(m_testObject);
 
 		m_camera.Zoom = 1.f / 3;
 	}
 
 	void Update(float dt) override {
-		printf("%i\n", InputManager.GetInput("Right"));
 		m_scene.Update(dt);
 	}
 
@@ -53,7 +52,6 @@ private:
 	alpha::Scene m_scene;
 
 	alpha::GameObject m_testObject;
-	alpha::QuadComponent m_testComponent;
 
 	alpha::Shader *m_shader;
 };
