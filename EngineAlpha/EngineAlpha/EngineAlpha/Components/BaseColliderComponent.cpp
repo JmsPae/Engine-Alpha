@@ -29,17 +29,21 @@ namespace alpha {
 
 	}
 
-	void BaseColliderComponent::CreateBody(glm::vec2 Position, float rotation) {
-		BodyDef.type = b2BodyType(ColliderBodyType::Dynamic);
+	void BaseColliderComponent::CreateBody(glm::vec2 Position, float rotation, b2BodyType type) {
+		BodyDef.type = type;
 		BodyDef.position.Set(Position.x, Position.y);
 		BodyDef.angle = rotation;
 		Body = PhysicsWorld::MainWorld.GetB2World()->CreateBody(&BodyDef);
 	}
 
-	void BaseColliderComponent::DefineFixture(float density, float friction) {
+	void BaseColliderComponent::CreateFixture(float density, float friction) {
 		FixtureDef.shape = Shape;
 		FixtureDef.density = density;
 		FixtureDef.friction = friction;
 		Body->CreateFixture(&FixtureDef);
+	}
+
+	void BaseColliderComponent::CreateFixtureStatic() {
+		Body->CreateFixture(Shape, 0.f);
 	}
 }

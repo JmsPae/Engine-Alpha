@@ -29,5 +29,8 @@
     <ClInclude Include="Components\Tank.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Components\Enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

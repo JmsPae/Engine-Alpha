@@ -6,7 +6,7 @@
 namespace alpha {
 	class QuadComponent : public Component {
 	public:
-		QuadComponent(glm::vec2 size = glm::vec2(1));
+		QuadComponent(glm::vec2 size = glm::vec2(1), glm::vec2 uvScale = glm::vec2(1));
 
 		void Init() override {
 			auto mesh = alpha::Mesh();
@@ -18,12 +18,12 @@ namespace alpha {
 			mesh.AddPosition({ Size.x / 2, -Size.y / 2, 0 });
 			mesh.AddPosition({ -Size.x / 2, -Size.y / 2, 0 });
 
-			mesh.AddUv({ 0, 0 });
-			mesh.AddUv({ 0, 1 });
-			mesh.AddUv({ 1, 1 });
-			mesh.AddUv({ 1, 1 });
-			mesh.AddUv({ 1, 0 });
-			mesh.AddUv({ 0, 0 });
+			mesh.AddUv(glm::vec2(0, 0));
+			mesh.AddUv(glm::vec2(0, 1) * UvScale);
+			mesh.AddUv(glm::vec2(1, 1) * UvScale);
+			mesh.AddUv(glm::vec2(1, 1) * UvScale);
+			mesh.AddUv(glm::vec2(1, 0) * UvScale);
+			mesh.AddUv(glm::vec2(0, 0));
 
 			for (size_t i = 0; i < 6; i++)
 				mesh.AddColor(glm::vec4(1));
@@ -37,7 +37,7 @@ namespace alpha {
 
 		~QuadComponent();
 
-		glm::vec2 Size;
+		glm::vec2 Size, UvScale;
 	private:
 		BaseMesh m_meshRenderer;
 	};

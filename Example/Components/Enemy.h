@@ -4,9 +4,9 @@
 #include "Tank.h"
 
 namespace game {
-	class Player : public game::Tank {
+	class Enemy : public game::Tank {
 	public:
-		Player(alpha::InputManager &inputManager) : inputManager(&inputManager) {
+		Enemy() {
 
 		}
 
@@ -17,17 +17,17 @@ namespace game {
 		void TankUpdate(float dt) override {
 			/*Parent->Rotation -= (float)inputManager->GetInput("Right") * dt;
 			Parent->Position += glm::vec2(cos(Parent->Rotation + glm::radians(90.f)), sin(Parent->Rotation + glm::radians(90.f))) * dt * 0.5f * (float)inputManager->GetInput("Forward");*/
-		
-			SetMove((float)inputManager->GetInput("Forward") * dt * 3);
+
+			/*SetMove((float)inputManager->GetInput("Forward") * dt * 3);
 			SetRotation((float)inputManager->GetInput("Right") * dt * 5);
-			SetTurretRotation((float)inputManager->GetInput("TurretRight") * dt * 10);
+			SetTurretRotation((float)inputManager->GetInput("TurretRight") * dt * 10);*/
 		}
 
-		~Player() {
+		~Enemy() {
 
 		}
 
 	private:
-		alpha::InputManager *inputManager;
+		
 	};
 }

@@ -4,12 +4,6 @@
 #include "../Physics/PhysicsWorld.h"
 
 namespace alpha {
-	enum ColliderBodyType {
-		Static = b2_staticBody,
-		Kinematic = b2_kinematicBody,
-		Dynamic = b2_dynamicBody
-	};
-
 	class BaseColliderComponent : public Component {
 	public:
 		BaseColliderComponent();
@@ -32,11 +26,12 @@ namespace alpha {
 
 		~BaseColliderComponent();
 	protected:
-		void CreateBody(glm::vec2 Position, float rotation);
+		void CreateBody(glm::vec2 Position, float rotation, b2BodyType type);
 		//Create polygon shape before calling...
-		void DefineFixture(float density, float friction);
+		void CreateFixture(float density, float friction);
+		void CreateFixtureStatic();
 
-		ColliderBodyType BodyType;
+		b2BodyType BodyType;
 
 		b2BodyDef BodyDef;
 		b2Body *Body; //Deleted automatically by B2World

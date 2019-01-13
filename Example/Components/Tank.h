@@ -17,7 +17,7 @@ namespace game {
 
 		float Health;
 	protected:
-		float Velocity, TurretRotation;
+		float TurretRotation;
 
 		void SetMove(float velocity);
 		void SetRotation(float rot);
