@@ -2,11 +2,11 @@
 
 #include <map>
 
+#include "../Maths.h"
 #include "../Graphics/Window.h"
 
 #define ALPHA_KEY_UNKNOWN            -1
 
-/* Printable keys */
 #define ALPHA_KEY_SPACE              32
 #define ALPHA_KEY_APOSTROPHE         39  /* ' */
 #define ALPHA_KEY_COMMA              44  /* , */
@@ -58,7 +58,6 @@
 #define ALPHA_KEY_WORLD_1            161 /* non-US #1 */
 #define ALPHA_KEY_WORLD_2            162 /* non-US #2 */
 
-/* Function keys */
 #define ALPHA_KEY_ESCAPE             256
 #define ALPHA_KEY_ENTER              257
 #define ALPHA_KEY_TAB                258
@@ -132,36 +131,15 @@
 
 #define ALPHA_KEY_LAST               ALPHA_KEY_MENU
 
-/*! @} */
 
-/*! @defgroup mods Modifier key flags
- *
- *  See [key input](@ref input_key) for how these are used.
- *
- *  @ingroup input
- *  @{ */
-
- /*! @brief If this bit is set one or more Shift keys were held down.
-  */
 #define ALPHA_MOD_SHIFT           0x0001
-  /*! @brief If this bit is set one or more Control keys were held down.
-   */
+
 #define ALPHA_MOD_CONTROL         0x0002
-   /*! @brief If this bit is set one or more Alt keys were held down.
-	*/
+
 #define ALPHA_MOD_ALT             0x0004
-	/*! @brief If this bit is set one or more Super keys were held down.
-	 */
+
 #define ALPHA_MOD_SUPER           0x0008
 
-	 /*! @} */
-
-	 /*! @defgroup buttons Mouse buttons
-	  *
-	  *  See [mouse button input](@ref input_mouse_button) for how these are used.
-	  *
-	  *  @ingroup input
-	  *  @{ */
 #define ALPHA_MOUSE_BUTTON_1         0
 #define ALPHA_MOUSE_BUTTON_2         1
 #define ALPHA_MOUSE_BUTTON_3         2
@@ -174,14 +152,7 @@
 #define ALPHA_MOUSE_BUTTON_LEFT      ALPHA_MOUSE_BUTTON_1
 #define ALPHA_MOUSE_BUTTON_RIGHT     ALPHA_MOUSE_BUTTON_2
 #define ALPHA_MOUSE_BUTTON_MIDDLE    ALPHA_MOUSE_BUTTON_3
-	  /*! @} */
 
-	  /*! @defgroup joysticks Joysticks
-	   *
-	   *  See [joystick input](@ref joystick) for how these are used.
-	   *
-	   *  @ingroup input
-	   *  @{ */
 #define ALPHA_JOYSTICK_1             0
 #define ALPHA_JOYSTICK_2             1
 #define ALPHA_JOYSTICK_3             2
@@ -203,9 +174,12 @@
 namespace alpha {
 	class InputManager {
 	public:
-		InputManager() {}
+		InputManager();
 		InputManager(Window *window);
 
+		glm::vec2 GetMousePosition();
+		glm::vec2 GetWindowPosition();
+		glm::vec2 GetWindowSize();
 		void AddInput(std::string name, int inputPositive, int inputNegative = -2);
 		int GetInput(std::string name);
 

@@ -1,7 +1,7 @@
 #include "Tank.h"
 
 namespace game {
-	Tank::Tank(float health) : Health(health), TurretRotation(0), TurretAngularVelocity(0), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.7f, 0.975f), 60000.f)){
+	Tank::Tank(float health) : Health(health), TurretDir(glm::vec2(0)), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)){
 
 	}
 
@@ -17,8 +17,7 @@ namespace game {
 		TankUpdate(dt);
 		
 		m_turretObject.Position = Parent->Position;
-		TurretRotation += TurretAngularVelocity * dt;
-		m_turretObject.Rotation = Parent->Rotation + TurretRotation;
+		m_turretObject.Rotation = atan2f(TurretDir.y, TurretDir.x);
 		m_turretObject.Update(dt);
 
 		
@@ -26,7 +25,6 @@ namespace game {
 		/*m_colliderComponent->SetVelocity(m_colliderComponent->GetVelocity() - (m_colliderComponent->GetVelocity() * dt * 2.f));
 		
 		m_colliderComponent->SetAngularVelocity(m_colliderComponent->GetAngularVelocity() - (m_colliderComponent->GetAngularVelocity() * dt * 3.f));*/
-		TurretAngularVelocity -= TurretAngularVelocity * dt * 10.f;
 	}
 
 	void Tank::Draw(alpha::Shader & shader) {
@@ -40,14 +38,14 @@ namespace game {
 	}
 	
 	void Tank::SetMove(float velocity) {
-		m_colliderComponent->SetVelocity(m_colliderComponent->GetVelocity() + (glm::vec2(cos(m_colliderComponent->GetRotation() + glm::radians(90.f)), sin(m_colliderComponent->GetRotation() + glm::radians(90.f))) * velocity));
+		m_colliderComponent->SetVelocity(m_colliderComponent->GetVelocity() + (glm::vec2(cos(m_colliderComponent->GetRotation()), sin(m_colliderComponent->GetRotation())) * velocity));
 	}
 
 	void Tank::SetRotation(float rot) {
 		m_colliderComponent->SetAngularVelocity(m_colliderComponent->GetAngularVelocity() + rot);
 	}
 
-	void Tank::SetTurretRotation(float rot) {
-		TurretAngularVelocity += rot;
+	void Tank::SetTurretDirection(glm::vec2 dir) {
+		TurretDir = dir;
 	}
 }

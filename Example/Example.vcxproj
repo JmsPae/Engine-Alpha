@@ -126,6 +126,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Components\Player.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Components\Tank.cpp" />
   </ItemGroup>
