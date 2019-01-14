@@ -40,6 +40,7 @@
     <ClInclude Include="EngineAlpha\Core\ResourceManager.h" />
     <ClInclude Include="EngineAlpha\Physics\PhysicsWorld.h" />
     <ClInclude Include="EngineAlpha\Components\QuadColliderComponent.h" />
+    <ClInclude Include="EngineAlpha\Physics\RayCaster.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineAlpha\Components\BaseColliderComponent.cpp" />
@@ -74,6 +75,7 @@
     <ClCompile Include="EngineAlpha\Core\ResourceManager.cpp" />
     <ClCompile Include="EngineAlpha\Physics\PhysicsWorld.cpp" />
     <ClCompile Include="EngineAlpha\Components\QuadColliderComponent.cpp" />
+    <ClCompile Include="EngineAlpha\Physics\RayCaster.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

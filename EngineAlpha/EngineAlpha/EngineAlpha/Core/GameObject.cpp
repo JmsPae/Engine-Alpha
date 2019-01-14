@@ -16,6 +16,8 @@ namespace alpha {
 			if (m_components[i])
 				m_components[i]->Update(dt);
 		}
+
+		//Rotation -= (float)((int)(Rotation / (glm::pi<float>() * 2))) * (glm::pi<float>() * 2);
 		Transform = glm::translate(glm::vec3(Position, 0)) * glm::rotate(Rotation, glm::vec3(0, 0, 1));
 	}
 

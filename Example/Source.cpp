@@ -27,6 +27,7 @@ public:
 		InputManager.AddInput("Right", ALPHA_KEY_A, ALPHA_KEY_D);
 		InputManager.AddInput("TurretRight", ALPHA_KEY_LEFT, ALPHA_KEY_RIGHT);
 		InputManager.AddInput("Forward", ALPHA_KEY_W, ALPHA_KEY_S);
+		InputManager.AddInput("Shoot", ALPHA_KEY_SPACE);
 
 		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");

@@ -34,6 +34,7 @@ namespace alpha {
 		BodyDef.position.Set(Position.x, Position.y);
 		BodyDef.angle = rotation;
 		Body = PhysicsWorld::MainWorld.GetB2World()->CreateBody(&BodyDef);
+		Body->SetUserData(this);
 	}
 
 	void BaseColliderComponent::CreateFixture(float density, float friction) {

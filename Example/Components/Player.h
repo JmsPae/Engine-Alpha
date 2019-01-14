@@ -15,11 +15,17 @@ namespace game {
 		}
 
 		void TankUpdate(float dt) override {
-			/*Parent->Rotation -= (float)inputManager->GetInput("Right") * dt;
-			Parent->Position += glm::vec2(cos(Parent->Rotation + glm::radians(90.f)), sin(Parent->Rotation + glm::radians(90.f))) * dt * 0.5f * (float)inputManager->GetInput("Forward");*/
-		
-			SetMove((float)inputManager->GetInput("Forward") * dt * 3);
-			SetRotation((float)inputManager->GetInput("Right") * dt * 5);
+			if (inputManager->GetInput("Shoot")) {
+				alpha::RayCaster raycast;
+				auto callback = raycast.CastRay(Parent->Position, Parent->Position + glm::vec2(cosf(Parent->Rotation + TurretRotation + glm::radians(90.f)), sinf(Parent->Rotation + TurretRotation + glm::radians(90.f))) * 100.f);
+				if (callback.Hit) {
+					printf("Hit! \n");
+					callback.Collider->SetVelocity(callback.Collider->GetVelocity() + callback.RayDirection * 5.f * dt);
+				}
+			}
+			
+			SetMove((float)inputManager->GetInput("Forward") * dt * 4);
+			SetRotation((float)inputManager->GetInput("Right") * dt * 6);
 			SetTurretRotation((float)inputManager->GetInput("TurretRight") * dt * 10);
 		}
 
