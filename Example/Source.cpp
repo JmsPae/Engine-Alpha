@@ -24,10 +24,9 @@ public:
 		alpha::ResourceManager::Textures["dirt1"].SetImage(alpha::ResourceManager::Images["dirt1"]);
 
 		InputManager = alpha::InputManager(GameWindow);
-		InputManager.AddInput("Right", ALPHA_KEY_A, ALPHA_KEY_D);
-		InputManager.AddInput("TurretRight", ALPHA_KEY_LEFT, ALPHA_KEY_RIGHT);
-		InputManager.AddInput("Forward", ALPHA_KEY_W, ALPHA_KEY_S);
-		InputManager.AddInput("Shoot", ALPHA_KEY_SPACE);
+		InputManager.AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);
+		InputManager.AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
+		InputManager.AddInput("Shoot", alpha::InputType::Mouse, alpha::Mouse::ALPHA_MOUSE_BUTTON_LEFT);
 
 		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");

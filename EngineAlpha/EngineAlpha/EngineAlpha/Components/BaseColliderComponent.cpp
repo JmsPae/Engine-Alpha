@@ -43,8 +43,4 @@ namespace alpha {
 		FixtureDef.friction = friction;
 		Body->CreateFixture(&FixtureDef);
 	}
-
-	void BaseColliderComponent::CreateFixtureStatic() {
-		Body->CreateFixture(Shape, 0.f);
-	}
 }

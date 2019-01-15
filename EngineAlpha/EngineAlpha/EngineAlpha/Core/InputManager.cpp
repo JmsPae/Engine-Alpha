@@ -22,24 +22,35 @@ namespace alpha {
 		return glm::vec2(sizex, sizey);
 	}
 
-	void InputManager::AddInput(std::string name, int inputPositive, int inputNegative) {
-		m_inputs[name] = { inputPositive, inputNegative };
+	void InputManager::AddInput(std::string name, InputType type, int inputPositive, int inputNegative) {
+		m_inputs[name] = { inputPositive, inputNegative, type };
 	}
 
 	int InputManager::GetInput(std::string name) {
 		int ret = 0;
-		int state = glfwGetKey(m_window->GetGLFWWindow(), m_inputs[name].PositiveKey);
-		if (state == GLFW_PRESS)
-			ret += 1;
-		if (m_inputs[name].NegativeKey != -2) {
-			state = glfwGetKey(m_window->GetGLFWWindow(), m_inputs[name].NegativeKey);
-			if (state == GLFW_PRESS)
-				ret -= 1;
+		switch (m_inputs[name].Type) {
+			case InputType::Keyboard: {
+				int state = glfwGetKey(m_window->GetGLFWWindow(), m_inputs[name].PositiveKey);
+				if (state == GLFW_PRESS)
+					ret += 1;
+				if (m_inputs[name].NegativeKey != -2) {
+					state = glfwGetKey(m_window->GetGLFWWindow(), m_inputs[name].NegativeKey);
+					if (state == GLFW_PRESS)
+						ret -= 1;
+				}
+			}
+			case InputType::Mouse: {
+				int state = glfwGetMouseButton(m_window->GetGLFWWindow(), m_inputs[name].PositiveKey);
+				if (state == GLFW_PRESS)
+					ret += 1;
+				if (m_inputs[name].NegativeKey != -2) {
+					state = glfwGetMouseButton(m_window->GetGLFWWindow(), m_inputs[name].NegativeKey);
+					if (state == GLFW_PRESS)
+						ret -= 1;
+				}
+			}
 		}
+
 		return ret;
-	}
-
-	InputManager::~InputManager() {
-
 	}
 }

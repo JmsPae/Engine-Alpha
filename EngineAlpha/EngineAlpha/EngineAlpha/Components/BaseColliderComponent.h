@@ -29,7 +29,6 @@ namespace alpha {
 		void CreateBody(glm::vec2 Position, float rotation, b2BodyType type);
 		//Create polygon shape before calling...
 		void CreateFixture(float density, float friction);
-		void CreateFixtureStatic();
 
 		b2BodyType BodyType;
 
