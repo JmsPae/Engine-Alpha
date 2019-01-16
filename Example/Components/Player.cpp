@@ -3,7 +3,9 @@
 namespace game {
 	Player::Player(alpha::InputManager &inputManager) : inputManager(&inputManager) {}
 
-	void Player::TankInit() {}
+	void Player::TankInit() {
+		SetColor(glm::vec4(0.5f, 0.5f, 1.f, 0.7f));
+	}
 
 	void Player::TankUpdate(float dt) {
 		if (inputManager->GetInput("Shoot")) {

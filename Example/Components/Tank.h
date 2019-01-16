@@ -22,8 +22,10 @@ namespace game {
 		void SetMove(float velocity);
 		void SetRotation(float rot);
 		void SetTurretDirection(glm::vec2 dir);
+		void SetColor(glm::vec4 color);
 	private:
 		alpha::GameObject m_turretObject;
 		alpha::QuadColliderComponent *m_colliderComponent;
+		alpha::QuadComponent *m_quadComponent, *m_turretQuadComponent;
 	};
 }

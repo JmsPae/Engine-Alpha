@@ -1,11 +1,11 @@
 #include "QuadComponent.h"
 
 namespace alpha {
-	QuadComponent::QuadComponent(glm::vec2 size, glm::vec2 uvScale) : Size(size), UvScale(uvScale) {
+	QuadComponent::QuadComponent(glm::vec2 size, glm::vec2 uvScale) : Size(size), UvScale(uvScale), Color(glm::vec4(1)) {
 
 	}
 
-	/*void QuadComponent::Init() {
+	void QuadComponent::Init() {
 		auto mesh = alpha::Mesh();
 
 		mesh.AddPosition({ -Size.x / 2, -Size.y / 2, 0 });
@@ -29,9 +29,10 @@ namespace alpha {
 	}
 
 	void QuadComponent::Draw(Shader & shader) {
+		shader.SendUniform("ColorMult", Color);
 		shader.SendUniform("Transform", Parent->Transform);
 		m_meshRenderer.Draw();
-	}*/
+	}
 	
 	QuadComponent::~QuadComponent() {
 

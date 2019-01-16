@@ -1,14 +1,15 @@
 #include "Tank.h"
 
 namespace game {
-	Tank::Tank(float health) : Health(health), TurretDir(glm::vec2(0)), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)){
+	Tank::Tank(float health) : Health(health), TurretDir(glm::vec2(0)), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)), m_quadComponent(new alpha::QuadComponent()), m_turretQuadComponent(new alpha::QuadComponent()) {
 
 	}
 
 	void Tank::Init() {
 		m_colliderComponent->Friction = 3.f; // Dampening is already applied manually
 		Parent->AddComponent(m_colliderComponent);
-		m_turretObject.AddComponent(new alpha::QuadComponent());
+		Parent->AddComponent(m_quadComponent);
+		m_turretObject.AddComponent(m_turretQuadComponent);
 
 		TankInit();
 	}
@@ -28,9 +29,11 @@ namespace game {
 	}
 
 	void Tank::Draw(alpha::Shader & shader) {
+		m_quadComponent->Draw(shader);
 		alpha::ResourceManager::Textures["tank1_t"].Bind();
 		m_turretObject.Draw(shader);
 		alpha::ResourceManager::Textures["tank1"].Bind();
+		
 	}
 
 	Tank::~Tank() {
@@ -47,5 +50,10 @@ namespace game {
 
 	void Tank::SetTurretDirection(glm::vec2 dir) {
 		TurretDir = dir;
+	}
+
+	void Tank::SetColor(glm::vec4 color) {
+		m_quadComponent->Color = color;
+		m_turretQuadComponent->Color = color;
 	}
 }
