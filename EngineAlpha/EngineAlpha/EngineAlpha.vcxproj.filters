@@ -66,6 +66,9 @@
     <ClCompile Include="EngineAlpha\Physics\RayCaster.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EngineAlpha\Core\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineAlpha\Maths.h">

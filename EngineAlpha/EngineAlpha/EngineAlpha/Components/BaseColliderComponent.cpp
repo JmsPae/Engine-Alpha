@@ -19,14 +19,17 @@ namespace alpha {
 
 
 	void BaseColliderComponent::Update(float dt) {
-		Body->SetLinearDamping(Friction);
-		Body->SetAngularDamping(Friction);
-		Parent->Position = GetPosition();
-		Parent->Rotation = GetRotation();
+		if (Body) {
+			Body->SetLinearDamping(Friction); //Awful, awful, awful!!
+			Body->SetAngularDamping(Friction);
+			Parent->Position = GetPosition();
+			Parent->Rotation = GetRotation();
+		}
 	}
 	
 	BaseColliderComponent::~BaseColliderComponent() {
-
+		PhysicsWorld::MainWorld.GetB2World()->DestroyBody(Body);
+		Body = nullptr;
 	}
 
 	void BaseColliderComponent::CreateBody(glm::vec2 Position, float rotation, b2BodyType type) {

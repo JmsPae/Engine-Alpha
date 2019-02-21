@@ -3,6 +3,7 @@
 #include <glad/glad.h>
 
 #include "Mesh.h"
+#include "../Core/ResourceManager.h"
 
 /*
 	The BaseMesh class takes the representation given to it via the Mesh Class
@@ -18,6 +19,9 @@ namespace alpha {
 		void SetMesh(Mesh &mesh);
 		
 		void Draw();
+
+		unsigned int Priority = 0;
+		std::string TextureName = "_none";
 
 		~BaseMesh();
 	private:

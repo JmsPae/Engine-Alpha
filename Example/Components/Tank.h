@@ -19,13 +19,17 @@ namespace game {
 	protected:
 		glm::vec2 TurretDir;
 
+		void Fire(float damage);
+
 		void SetMove(float velocity);
 		void SetRotation(float rot);
+		void SetDirection(glm::vec2 rot);
+		float GetRotation();
 		void SetTurretDirection(glm::vec2 dir);
 		void SetColor(glm::vec4 color);
 	private:
 		alpha::GameObject m_turretObject;
 		alpha::QuadColliderComponent *m_colliderComponent;
-		alpha::QuadComponent *m_quadComponent, *m_turretQuadComponent;
+		alpha::QuadComponent *m_quadComponent, *m_tracerComponent, *m_turretQuadComponent;
 	};
 }

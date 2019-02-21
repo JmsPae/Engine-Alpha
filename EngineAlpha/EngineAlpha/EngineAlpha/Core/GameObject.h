@@ -1,7 +1,6 @@
 #pragma once
 
 #include "../Maths.h"
-
 #include "../Components/Component.h"
 
 namespace alpha {
@@ -17,14 +16,22 @@ namespace alpha {
 
 		void Draw(Shader &shader);
 
+		template<class T>
+		Component* GetComponent() {
+			for (size_t i = 0; i < m_components.size(); i++) {
+				if (dynamic_cast<T*>(m_components[i])) {
+					return m_components[i];
+				}
+			}
+			return nullptr;
+		}
+
 		~GameObject();
 
 		float Rotation;
 		glm::vec2 Position;
 		glm::mat4 Transform;
 	private:
-		
-
 		std::vector<Component*> m_components;
 		std::vector<Component*> m_componentRemovalQueue;
 	};

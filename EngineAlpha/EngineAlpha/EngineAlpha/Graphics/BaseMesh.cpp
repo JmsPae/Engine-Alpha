@@ -36,7 +36,7 @@ namespace alpha {
 		glBindVertexArray(m_VAO);
 		glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 
-		auto stride = sizeof(float) * (3 + 4 + 2);
+		auto stride = sizeof(float) * (2 + 3 + 4);
 
 		glBufferData(GL_ARRAY_BUFFER, sizeof(float) * data.size(), data.data(), GL_STATIC_DRAW); //Static draw since i dont intend to constantly change the mesh
 		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, stride, (void*)0);

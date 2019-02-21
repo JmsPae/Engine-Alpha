@@ -8,7 +8,7 @@ namespace alpha {
 
 	class Component {
 	public:
-		Component() {}
+		Component() : Parent(nullptr) {}
 
 		void _SetParent(GameObject *parent) { Parent = parent; }
 
@@ -19,7 +19,7 @@ namespace alpha {
 		virtual void Draw(Shader &shader) {}
 
 		~Component() {}
-	protected:
+
 		GameObject *Parent;
 	};
 }

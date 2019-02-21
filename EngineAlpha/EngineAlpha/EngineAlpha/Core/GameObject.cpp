@@ -17,7 +17,6 @@ namespace alpha {
 				m_components[i]->Update(dt);
 		}
 
-		//Rotation -= (float)((int)(Rotation / (glm::pi<float>() * 2))) * (glm::pi<float>() * 2);
 		Transform = glm::translate(glm::vec3(Position, 0)) * glm::rotate(Rotation, glm::vec3(0, 0, 1));
 	}
 
@@ -34,6 +33,7 @@ namespace alpha {
 			m_componentRemovalQueue.erase(m_componentRemovalQueue.begin());
 		}
 	}
+	
 
 	GameObject::~GameObject() {
 		for (size_t i = 0; i < m_components.size(); i++) {

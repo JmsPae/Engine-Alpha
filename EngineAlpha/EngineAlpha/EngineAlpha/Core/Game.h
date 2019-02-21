@@ -4,53 +4,47 @@
 
 #include "../Graphics/Window.h"
 #include "InputManager.h"
+#include "Scene.h"
 
 namespace alpha {
-	class Game {
+	class Timer {
 	public:
-		Game() : Time((double)clock() / CLOCKS_PER_SEC), GameWindow(new Window()){ }
-
-		void Start() {
-			Init();
-
-			int TotalFrames = 0;
-			float LastTime = 0, FrameTimer = 0;
-			while (GameWindow->IsOpen()) {
-				Time = glfwGetTime();
-				float dt = Time - LastTime;
-				LastTime = Time;
-
-				FrameTimer += dt;
-				TotalFrames++;
-				if (FrameTimer >= 1) {
-					printf("%f FPS | %f MS \n", (float)TotalFrames / FrameTimer, (FrameTimer / (float)TotalFrames) * 1000.f);
-					TotalFrames = 0;
-					FrameTimer = 0;
-				}
-
-				GameWindow->PollEvents();
-
-				Update(dt);
-
-				GameWindow->Clear();
-
-				Draw();
-
-				GameWindow->SwapBuffers();
-
-			}
+		Timer() {
+			m_lastTime = std::chrono::steady_clock::now();
 		}
 
-		~Game() { Finish(); }
+		template<class T>
+		T Restart() {
+			auto current = std::chrono::steady_clock::now();
+			T restartTime = std::chrono::duration<T>(current - m_lastTime).count();
+			m_lastTime = current;
+			return restartTime;
+		}
 
-		virtual void Init() {}
-		virtual void Update(float dt) {}
-		virtual void Draw() {}
-		virtual void Finish() {}
-	protected:
-		Window *GameWindow;
-		InputManager InputManager;
-		double Time;
+		void Restart() {
+			m_lastTime = std::chrono::steady_clock::now();
+		}
+
+	private:
+		std::chrono::time_point<std::chrono::steady_clock> m_lastTime;
 	};
 
+	class Scene;
+	class Game {
+	public:
+		Game();
+
+		void SetScene(Scene *newScene);
+		void Start(Scene *startScene);
+
+		InputManager &GetInputManager();
+		Window *GetWindow();
+
+		~Game();
+	private:
+		Scene *m_currentScene;
+		Window *m_gameWindow;
+		InputManager m_inputManager;
+		Timer m_deltaTimer;
+	};
 }

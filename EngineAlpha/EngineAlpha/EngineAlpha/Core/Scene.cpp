@@ -9,7 +9,7 @@ namespace alpha {
 		m_gameObjects.push_back(&object);
 	}
 
-	void Scene::Update(float dt) {
+	void Scene::UpdateGameObjects(float dt) {
 		for (size_t i = 0; i < m_gameObjects.size(); i++) {
 			if (m_gameObjects[i])
 				m_gameObjects[i]->Update(dt);
@@ -23,11 +23,8 @@ namespace alpha {
 		}
 	}
 
-	void Scene::Draw(Shader &shader) {
-		for (size_t i = 0; i < m_gameObjects.size(); i++) {
-			if (m_gameObjects[i])
-				m_gameObjects[i]->Draw(shader);
-		}
+	void Scene::_SetGame(Game *game) {
+		MainGame = game;
 	}
 
 	Scene::~Scene() {

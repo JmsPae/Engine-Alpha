@@ -1,20 +1,18 @@
 #include "Player.h"
 
 namespace game {
-	Player::Player(alpha::InputManager &inputManager) : inputManager(&inputManager) {}
+	Player::Player(alpha::InputManager &inputManager) : inputManager(&inputManager), m_shootTimer(0.f) {}
 
 	void Player::TankInit() {
-		SetColor(glm::vec4(0.5f, 0.5f, 1.f, 0.7f));
+		SetColor(glm::vec4(0.3f, 0.3f, 1.f, 1.f));
 	}
 
 	void Player::TankUpdate(float dt) {
-		if (inputManager->GetInput("Shoot")) {
-			alpha::RayCaster raycast;
-			auto callback = raycast.CastRay(Parent->Position, Parent->Position + TurretDir * 100.f);
-			if (callback.Hit) {
-				printf("Hit! \n");
-				callback.Collider->SetVelocity(callback.Collider->GetVelocity() + callback.RayDirection * 5.f * dt);
-			}
+		m_shootTimer += dt;
+
+		if (inputManager->GetInput("Shoot") && m_shootTimer >= 0.25f) {
+			Fire(10.f);
+			m_shootTimer = 0.f;
 		}
 
 		auto windowSize = inputManager->GetWindowSize();

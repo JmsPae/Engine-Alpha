@@ -12,6 +12,7 @@ namespace game {
 
 		void TankUpdate(float dt) override;
 	private:
+		float m_shootTimer;
 		alpha::InputManager *inputManager;
 	};
 }

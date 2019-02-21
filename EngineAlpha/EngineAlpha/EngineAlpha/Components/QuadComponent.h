@@ -6,7 +6,7 @@
 namespace alpha {
 	class QuadComponent : public Component {
 	public:
-		QuadComponent(glm::vec2 size = glm::vec2(1), glm::vec2 uvScale = glm::vec2(1));
+		QuadComponent(unsigned int priority = 0, glm::vec2 size = glm::vec2(1), glm::vec2 uvScale = glm::vec2(1));
 
 		void Init() override;
 

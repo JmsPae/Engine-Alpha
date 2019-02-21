@@ -33,7 +33,7 @@ namespace alpha {
 		b2BodyType BodyType;
 
 		b2BodyDef BodyDef;
-		b2Body *Body; //Deleted automatically by B2World
+		b2Body *Body; //Pointers are deleted automatically by B2World on exit
 		b2Shape *Shape;
 		b2FixtureDef FixtureDef;
 	};

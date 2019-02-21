@@ -4,13 +4,15 @@
 #include "Components/Player.h"
 #include "Components/Enemy.h"
 
-class MainGame : public alpha::Game {
+class MainScene : public alpha::Scene {
 public:
-	MainGame() {
+	MainScene() {
 		alpha::ResourceManager::Images["tank1"] = alpha::Image("tank1.png");
 		alpha::ResourceManager::Images["tank1_t"] = alpha::Image("tank1_t.png");
 		alpha::ResourceManager::Images["wall"] = alpha::Image("wall.png");
 		alpha::ResourceManager::Images["ground"] = alpha::Image("ground.png");
+
+		Time = 0.f;
 	}
 
 	void Init() override {
@@ -23,40 +25,40 @@ public:
 		alpha::ResourceManager::Textures["ground"] = alpha::Texture();
 		alpha::ResourceManager::Textures["ground"].SetImage(alpha::ResourceManager::Images["ground"]);
 
-		InputManager = alpha::InputManager(GameWindow);
-		InputManager.AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);
-		InputManager.AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
-		InputManager.AddInput("Shoot", alpha::InputType::Mouse, alpha::Mouse::ALPHA_MOUSE_BUTTON_LEFT);
+		
+		MainGame->GetInputManager().AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);
+		MainGame->GetInputManager().AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
+		MainGame->GetInputManager().AddInput("Shoot", alpha::InputType::Mouse, alpha::Mouse::ALPHA_MOUSE_BUTTON_LEFT);
 
-		m_scene = alpha::Scene();
 		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");
 
 
 
 		m_playerObject = alpha::GameObject();
 		//m_playerObject.AddComponent(new alpha::QuadComponent());
-		m_playerObject.AddComponent(new game::Player(InputManager));
-		m_scene.AddGameObject(m_playerObject);
+		m_playerObject.AddComponent(new game::Player(MainGame->GetInputManager()));
+		AddGameObject(m_playerObject);
 
 		m_testObject = alpha::GameObject(glm::vec2(0, 1.5f));
 		m_testObject.AddComponent(new alpha::QuadComponent());
 		m_testObject.AddComponent(new alpha::QuadColliderComponent(glm::vec2(1), 0.f));
-		m_scene.AddGameObject(m_testObject);
+		AddGameObject(m_testObject);
 
 		m_groundObject = alpha::GameObject();
-		m_groundObject.AddComponent(new alpha::QuadComponent(glm::vec2(20.f), glm::vec2(20.f)));
-		m_scene.AddGameObject(m_groundObject);
+		m_groundObject.AddComponent(new alpha::QuadComponent(0, glm::vec2(20.f), glm::vec2(20.f)));
+		AddGameObject(m_groundObject);
 
 		m_enemyObject = alpha::GameObject(glm::vec2(0, 3.5f));
 		//m_enemyObject.AddComponent(new alpha::QuadComponent());
-		m_enemyObject.AddComponent(new game::Enemy());
-		m_scene.AddGameObject(m_enemyObject);
+		m_enemyObject.AddComponent(new game::Enemy((game::Player*)m_playerObject.GetComponent<game::Player>()));
+		AddGameObject(m_enemyObject);
 
 		m_camera.Zoom = 1.f / 4;
 	}
 
 	void Update(float dt) override {
-		m_scene.Update(dt);
+		Time += dt;
+		UpdateGameObjects(dt);
 		alpha::PhysicsWorld::MainWorld.Update(dt);
 		m_camera.Position = m_playerObject.Position;
 	}
@@ -64,10 +66,10 @@ public:
 	void Draw() override {
 		m_shader->Bind();
 
-		m_shader->SendUniform("Timer", this->Time);
+		m_shader->SendUniform("Timer", Time);
 		m_shader->SendUniform("Transform", glm::translate(glm::vec3(0.5, 0, 0)));
 
-		m_camera.Draw(*m_shader, (float)GameWindow->SizeX / (float)GameWindow->SizeY);
+		m_camera.Draw(*m_shader, (float)MainGame->GetWindow()->SizeX / (float)MainGame->GetWindow()->SizeY);
 		
 		alpha::ResourceManager::Textures["ground"].Bind();
 		m_groundObject.Draw(*m_shader);
@@ -81,9 +83,9 @@ public:
 	}
 
 private:
-	alpha::Camera m_camera;
+	float Time;
 
-	alpha::Scene m_scene;
+	alpha::Camera m_camera;
 
 	alpha::GameObject m_playerObject;
 	alpha::GameObject m_enemyObject;
@@ -95,8 +97,8 @@ private:
 };
 
 int main() {
-	MainGame game;
-	game.Start();
+	alpha::Game game;
+	game.Start(new MainScene());
 
 	return 0;
 }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EngineAlpha\Components\BaseColliderComponent.cpp" />
+    <ClCompile Include="EngineAlpha\Core\Game.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
     <ClCompile Include="EngineAlpha\Core\GameObject.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\BaseMesh.cpp">
@@ -82,7 +83,7 @@
     <ProjectGuid>{D9FB7E60-4A6A-43B1-B25D-B93BE1D4E2CB}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
     <RootNamespace>EngineAlpha</RootNamespace>
-    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <WindowsTargetPlatformVersion>10.0.17763.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -154,6 +155,7 @@
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -188,6 +190,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
