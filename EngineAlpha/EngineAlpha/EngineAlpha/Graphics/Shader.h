@@ -6,8 +6,6 @@
 #include <vector>
 #include <map>
 
-#include <glad/glad.h>
-
 #include "../glm/glm.hpp"
 
 /*
@@ -17,9 +15,9 @@
 namespace alpha {
 	//The shader types supported by Opengl 3.3
 	enum ShaderType {
-		VERTEX_SHADER = GL_VERTEX_SHADER,
-		FRAGMENT_SHADER = GL_FRAGMENT_SHADER,
-		GEOMETRY_SHADER = GL_GEOMETRY_SHADER
+		VERTEX_SHADER,
+		FRAGMENT_SHADER,
+		GEOMETRY_SHADER
 	};
 
 	class Shader {
