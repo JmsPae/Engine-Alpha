@@ -6,8 +6,8 @@ namespace alpha {
 	Image::Image(int width, int height, glm::vec4 fillColor) : Width(width), Height(height), Components(4), m_imageData(nullptr) {
 		m_imageData = new unsigned char[width * height * Components];
 		
-		for (size_t y = 0; y < width; y++) {
-			for (size_t x = 0; x < height; x++) {
+		for (size_t y = 0; y < (size_t)width; y++) {
+			for (size_t x = 0; x < (size_t)height; x++) {
 				for (size_t c = 0; c < 4; c++) {
 					m_imageData[4 * ((y * width) + x) + c] = (char)(fillColor[c] * 255);
 				}
