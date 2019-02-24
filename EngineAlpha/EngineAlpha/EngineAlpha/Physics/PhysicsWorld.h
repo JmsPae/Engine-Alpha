@@ -15,7 +15,7 @@ namespace alpha {
 
 		b2World *GetB2World();
 	private:
-		const int m_velocityIterations = 6, m_positionIterations = 2;
+		const int m_VELOCITYITERATIONS = 6, m_POSITIONITERATIONS = 2;
 
 		b2World m_world;
 	};

@@ -6,7 +6,7 @@ namespace alpha {
 	}
 
 	void PhysicsWorld::Update(float dt) {
-		m_world.Step(dt, m_velocityIterations, m_positionIterations);
+		m_world.Step(dt, m_VELOCITYITERATIONS, m_POSITIONITERATIONS);
 	}
 
 	PhysicsWorld::~PhysicsWorld() {

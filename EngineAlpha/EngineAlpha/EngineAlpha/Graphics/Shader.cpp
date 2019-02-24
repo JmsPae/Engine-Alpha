@@ -36,14 +36,14 @@ namespace alpha {
 
 		m_shaders.push_back(glCreateShader(ShaderTypeToGL(type)));
 		const char *chars = pth.c_str();
-		glShaderSource(m_shaders[m_shaders.size() - 1], 1, &chars, NULL);
+		glShaderSource(m_shaders[m_shaders.size() - 1], 1, &chars, nullptr);
 		glCompileShader(m_shaders[m_shaders.size() - 1]);
 
 		GLint success;
 		GLchar infoLog[1024];
 		glGetShaderiv(m_shaders[m_shaders.size() - 1], GL_COMPILE_STATUS, &success);
 		if (!success) {
-			glGetShaderInfoLog(m_shaders[m_shaders.size() - 1], 1024, NULL, infoLog);
+			glGetShaderInfoLog(m_shaders[m_shaders.size() - 1], 1024, nullptr, infoLog);
 			std::cout << "Error at " << path << ", \n" << infoLog << std::endl;
 		}
 	}

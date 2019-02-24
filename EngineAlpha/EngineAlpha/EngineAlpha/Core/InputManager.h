@@ -2,6 +2,8 @@
 
 #include <map>
 
+#include <GLFW/glfw3.h>
+
 #include "../Maths.h"
 #include "../Graphics/Window.h"
 

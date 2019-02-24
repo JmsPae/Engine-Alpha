@@ -14,7 +14,7 @@ namespace alpha {
 
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
 		glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-		m_glfwWindow = glfwCreateWindow(windowWidth, windowHeight, windowName.c_str(), NULL, NULL);
+		m_glfwWindow = glfwCreateWindow(windowWidth, windowHeight, windowName.c_str(), nullptr, nullptr);
 
 		if (!m_glfwWindow) {
 			printf("ERROR: GLFW Window Failed to create!\n");
