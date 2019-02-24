@@ -44,8 +44,8 @@ namespace alpha {
 	}
 
 	Image::~Image() {
-		/*if (m_imageData) {
+		if (m_imageData) {
 			stbi_image_free(m_imageData);
-		}*/
+		}
 	}
 }
