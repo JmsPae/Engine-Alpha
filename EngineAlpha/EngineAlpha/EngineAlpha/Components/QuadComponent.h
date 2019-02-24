@@ -2,6 +2,7 @@
 
 #include "Component.h"
 #include "../Graphics/BaseMesh.h"
+#include "../Color.h"
 
 namespace alpha {
 	class QuadComponent : public Component {
@@ -15,7 +16,7 @@ namespace alpha {
 		~QuadComponent();
 
 		glm::vec2 Size, UvScale;
-		glm::vec4 Color;
+		Color Color;
 	private:
 		BaseMesh m_meshRenderer;
 	};

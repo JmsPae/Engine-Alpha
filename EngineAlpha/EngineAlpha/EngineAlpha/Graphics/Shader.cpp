@@ -142,6 +142,12 @@ namespace alpha {
 		glUniformMatrix4fv(m_locations[name], 1, GL_FALSE, &variable[0][0]);
 	}
 
+	void Shader::SendUniform(std::string name, Color variable) {
+		if (m_locations.find(name) == m_locations.end())
+			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
+		glUniform4f(m_locations[name], variable.r, variable.g, variable.b, variable.a);
+	}
+
 	Shader::~Shader() {
 		glDeleteProgram(ProgramID);
 	}

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineAlpha\Color.h" />
     <ClInclude Include="EngineAlpha\Components\BaseColliderComponent.h" />
     <ClInclude Include="EngineAlpha\Graphics\Camera.h" />
     <ClInclude Include="EngineAlpha\Components\Component.h" />
@@ -43,6 +44,7 @@
     <ClInclude Include="EngineAlpha\Physics\RayCaster.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EngineAlpha\Color.cpp" />
     <ClCompile Include="EngineAlpha\Components\BaseColliderComponent.cpp" />
     <ClCompile Include="EngineAlpha\Core\Game.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />

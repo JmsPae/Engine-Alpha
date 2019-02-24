@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Maths.h"
+#include "Color.h"
 
 #include "Core/Game.h"
 #include "Core/Scene.h"

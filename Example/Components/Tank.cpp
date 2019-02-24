@@ -69,7 +69,7 @@ namespace game {
 		TurretDir = dir;
 	}
 
-	void Tank::SetColor(glm::vec4 color) {
+	void Tank::SetColor(alpha::Color color) {
 		m_quadComponent->Color = color;
 		m_turretQuadComponent->Color = color;
 	}
