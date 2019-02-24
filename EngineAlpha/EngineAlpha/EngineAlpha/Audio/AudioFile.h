@@ -2,9 +2,10 @@
 
 #include <string>
 
+#include <iostream>
+#include <fstream>
+#include <vector>
 #include <sndfile/sndfile.hh>
-
-#define BUFFER_LENGTH 1024
 
 namespace alpha {
 	class AudioFile {
@@ -14,5 +15,8 @@ namespace alpha {
 		void LoadFile(std::string file);
 
 		~AudioFile();
+
+	private:
+		unsigned int m_channels, m_samplerate;
 	};
 }

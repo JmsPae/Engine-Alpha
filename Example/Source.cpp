@@ -1,5 +1,6 @@
 #include <EngineAlpha/Engine.h>
 #include <EngineAlpha/Components/TestComponent.h>
+#include <EngineAlpha/Audio/AudioFile.h>
 
 #include "Components/Player.h"
 #include "Components/Enemy.h"
@@ -25,7 +26,9 @@ public:
 		alpha::ResourceManager::Textures["ground"] = alpha::Texture();
 		alpha::ResourceManager::Textures["ground"].SetImage(alpha::ResourceManager::Images["ground"]);
 
-		
+		alpha::AudioFile file;
+		file.LoadFile("test.wav");
+
 		MainGame->GetInputManager().AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);
 		MainGame->GetInputManager().AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
 		MainGame->GetInputManager().AddInput("Shoot", alpha::InputType::Mouse, alpha::Mouse::ALPHA_MOUSE_BUTTON_LEFT);

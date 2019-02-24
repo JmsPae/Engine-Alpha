@@ -6,18 +6,16 @@ namespace alpha {
 	}
 
 	void AudioFile::LoadFile(std::string filename) {
-		short buffer[BUFFER_LENGTH];
+		std::string path = "Resources/Audio/" + filename;
+		if (std::ifstream(path)) {
+			SndfileHandle myf = SndfileHandle(&(path).c_str()[0]);
+			std::vector<float> array(unsigned int(myf.frames()));
+			myf.read(&array[0], int(myf.frames()));
 
-		SndfileHandle file;
+			printf("%i channels \n", myf.channels());
+			printf("%i samplerate \n", myf.samplerate());
 
-		file = SndfileHandle(filename);
-
-		printf("Opened file '%s'\n", filename.c_str());
-		printf("    Sample rate : %d\n", file.samplerate());
-		printf("    Channels    : %d\n", file.channels());
-
-		file.read(buffer, BUFFER_LENGTH);
-		
+		}
 	}
 
 	AudioFile::~AudioFile() {
