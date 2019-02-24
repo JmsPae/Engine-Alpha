@@ -58,7 +58,7 @@ namespace alpha {
 	void Shader::SendUniform(std::string name, double variable) {
 		if (m_locations.find(name) == m_locations.end())
 			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
-		glUniform1f(m_locations[name], variable);
+		glUniform1d(m_locations[name], variable);
 	}
 
 	void Shader::SendUniform(std::string name, int variable) {
