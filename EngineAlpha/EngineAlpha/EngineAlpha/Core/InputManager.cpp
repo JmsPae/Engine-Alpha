@@ -1,5 +1,9 @@
 #include "InputManager.h"
 
+#define GLFW_INCLUDE_NONE
+#include <GLFW/glfw3.h>
+#include <glad/glad.h>
+
 namespace alpha {
 	InputManager::InputManager() : m_window(nullptr) {}
 	InputManager::InputManager(Window *window) : m_window(window) { }

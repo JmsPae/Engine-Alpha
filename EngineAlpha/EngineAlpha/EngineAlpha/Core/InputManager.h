@@ -2,14 +2,14 @@
 
 #include <map>
 
-#include <GLFW/glfw3.h>
-
 #include "../Maths.h"
 #include "../Graphics/Window.h"
 
 //All of these input defines are basically copy-pasted from GLFW with some modification...
 
 //Joystick functionality yet to be implemented.
+
+struct GLFW;
 
 namespace alpha {
 	enum Keyboard {
