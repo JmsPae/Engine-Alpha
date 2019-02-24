@@ -4,7 +4,7 @@ namespace game {
 	Player::Player(alpha::InputManager &inputManager) : inputManager(&inputManager), m_shootTimer(0.f) {}
 
 	void Player::TankInit() {
-		SetColor(glm::vec4(0.3f, 0.3f, 1.f, 1.f));
+		SetColor(alpha::Color(0.3f, 0.3f, 1.f, 1.f));
 	}
 
 	void Player::TankUpdate(float dt) {

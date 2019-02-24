@@ -75,6 +75,9 @@
     <ClCompile Include="EngineAlpha\Audio\AudioFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EngineAlpha\Color.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineAlpha\Maths.h">
@@ -147,6 +150,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EngineAlpha\Audio\AudioFile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineAlpha\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
