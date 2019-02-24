@@ -1,7 +1,7 @@
 #include "QuadComponent.h"
 
 namespace alpha {
-	QuadComponent::QuadComponent(unsigned int priority, glm::vec2 size, glm::vec2 uvScale) : Size(size), UvScale(uvScale), Color(glm::vec4(1)) {
+	QuadComponent::QuadComponent(unsigned int priority, glm::vec2 size, glm::vec2 uvScale) : Size(size), UvScale(uvScale), Color(alpha::Color::FromFloat(1.0f, 1.0f, 1.0f, 1.0f)) {
 		m_meshRenderer.Priority = priority;
 	}
 
@@ -23,7 +23,7 @@ namespace alpha {
 		mesh.AddUv(glm::vec2(0, 0));
 
 		for (size_t i = 0; i < 6; i++)
-			mesh.AddColor(glm::vec4(1));
+			mesh.AddColor(Color::FromFloat(1.0f, 1.0f, 1.0f, 1.0f));
 
 		m_meshRenderer.SetMesh(mesh);
 	}

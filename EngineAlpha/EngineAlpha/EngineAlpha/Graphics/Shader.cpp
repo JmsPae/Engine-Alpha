@@ -140,6 +140,10 @@ namespace alpha {
 		glUniformMatrix4fv(m_locations[name], 1, GL_FALSE, &variable[0][0]);
 	}
 
+	void Shader::SendUniform(std::string name, Color variable) {
+		SendUniform(name, variable.ToFloatColor());
+	}
+
 	Shader::~Shader() {
 		glDeleteProgram(ProgramID);
 	}

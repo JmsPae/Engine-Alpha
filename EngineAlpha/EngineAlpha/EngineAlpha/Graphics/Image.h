@@ -6,15 +6,16 @@
 #include "stb_img.h"
 
 #include "../Maths.h"
+#include "../Color.h"
 
 namespace alpha {
 	class Image {
 	public:
 		Image();
-		Image(int width, int height, glm::vec4 fillColor = glm::vec4(1));
+		Image(int width, int height, Color fillColor = Color::FromFloat(1.0f, 1.0f, 1.0f, 1.0f));
 		Image(std::string path);
 		
-		glm::vec4 GetPixel(int x, int y);
+		Color GetPixel(int x, int y);
 		unsigned char *GetPixelData();
 
 		~Image();

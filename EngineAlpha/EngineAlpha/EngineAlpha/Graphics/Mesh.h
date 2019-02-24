@@ -3,6 +3,7 @@
 #include <vector>
 
 #include "../Maths.h"
+#include "../Color.h"
 
 /*
 	The Mesh class is the representation of a (technically 3d) mesh. Its the 
@@ -17,10 +18,10 @@ namespace alpha {
 
 		void AddUv(glm::vec2 uv) { Uvs.push_back(uv); }
 		void AddPosition(glm::vec3 position) { Positions.push_back(position); }
-		void AddColor(glm::vec4 color) { Colors.push_back(color); }
+		void AddColor(Color color) { Colors.push_back(color); }
 
 		std::vector<glm::vec2> Uvs;
 		std::vector<glm::vec3> Positions;
-		std::vector<glm::vec4> Colors;
+		std::vector<Color> Colors;
 	};
 }

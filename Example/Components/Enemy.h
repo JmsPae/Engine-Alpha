@@ -12,7 +12,7 @@ namespace game {
 		}
 
 		void TankInit() override {
-			SetColor(glm::vec4(1, 0, 0, 1));
+			SetColor(alpha::Color::FromFloat(1.0f, 0.0f, 0.0f, 1.0f));
 		}
 
 		void TankUpdate(float dt) override {

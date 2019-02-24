@@ -7,6 +7,7 @@
 #include <map>
 
 #include "../glm/glm.hpp"
+#include "../Color.h"
 
 /*
 	The Shader class handles everything to do with the shader on the hardware aswell as the software side.
@@ -43,6 +44,7 @@ namespace alpha {
 		void SendUniform(std::string name, glm::mat2 variable);
 		void SendUniform(std::string name, glm::mat3 variable);
 		void SendUniform(std::string name, glm::mat4 variable);
+		void SendUniform(std::string name, Color variable);
 
 		~Shader();
 
