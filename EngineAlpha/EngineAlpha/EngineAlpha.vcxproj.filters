@@ -69,7 +69,7 @@
     <ClCompile Include="EngineAlpha\Core\Game.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Color.cpp">
+    <ClCompile Include="EngineAlpha\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -140,7 +140,7 @@
     <ClInclude Include="EngineAlpha\Physics\RayCaster.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Color.h">
+    <ClInclude Include="EngineAlpha\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
