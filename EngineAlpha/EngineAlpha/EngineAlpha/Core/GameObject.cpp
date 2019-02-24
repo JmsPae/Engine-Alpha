@@ -37,16 +37,6 @@ namespace alpha {
 			m_componentRemovalQueue.erase(m_componentRemovalQueue.begin());
 		}
 	}
-	
-	template<class T>
-	Component *GameObject::GetComponent() {
-		for (size_t i = 0; i < m_components.size(); i++) {
-			if (dynamic_cast<T*>(m_components[i])) {
-				return m_components[i];
-			}
-		}
-		return nullptr;
-	}
 
 	Scene *GameObject::GetScene() {
 		return m_scene;

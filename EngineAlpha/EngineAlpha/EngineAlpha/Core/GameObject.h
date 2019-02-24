@@ -1,8 +1,8 @@
 #pragma once
 
 #include "../Maths.h"
-#include "../Components/Component.h"
 #include "../Core/Scene.h"
+#include "../Components/Component.h"
 
 namespace alpha {
 	class Component;
@@ -20,7 +20,14 @@ namespace alpha {
 		void Draw(Shader &shader);
 
 		template<class T>
-		Component* GetComponent();
+		Component* GetComponent() {
+			for (size_t i = 0; i < m_components.size(); i++) {
+				if (dynamic_cast<T*>(m_components[i])) {
+					return m_components[i];
+				}
+			}
+			return nullptr;
+		}
 
 		Scene *GetScene();
 
