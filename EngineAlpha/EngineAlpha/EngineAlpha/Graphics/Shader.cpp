@@ -141,7 +141,9 @@ namespace alpha {
 	}
 
 	void Shader::SendUniform(std::string name, Color variable) {
-		SendUniform(name, variable.ToFloatColor());
+		if (m_locations.find(name) == m_locations.end())
+			m_locations[name] = glGetUniformLocation(ProgramID, name.c_str());
+		glUniform4f(m_locations[name], variable.r, variable.g, variable.b, variable.a);
 	}
 
 	Shader::~Shader() {

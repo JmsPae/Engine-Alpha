@@ -12,7 +12,7 @@ namespace game {
 		}
 
 		void TankInit() override {
-			SetColor(alpha::Color::FromFloat(1.0f, 0.0f, 0.0f, 1.0f));
+			SetColor(alpha::Color(1.0f, 0.0f, 0.0f, 1.0f));
 		}
 
 		void TankUpdate(float dt) override {

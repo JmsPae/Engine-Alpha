@@ -9,7 +9,7 @@ namespace alpha {
 		for (size_t y = 0; y < (size_t)width; y++) {
 			for (size_t x = 0; x < (size_t)height; x++) {
 				for (size_t c = 0; c < 4; c++) {
-					m_data[4 * ((y * width) + x) + c] = (char)(fillColor[c]);
+					m_data[4 * ((y * width) + x) + c] = (char)(fillColor[c] * 255);
 				}
 			}
 		}
@@ -38,9 +38,9 @@ namespace alpha {
 			float b = m_data[4 * ((y * Width) + x) + 2];
 			float a = m_data[4 * ((y * Width) + x) + 3];
 
-			return Color::FromFloat(r / 255, g / 255, b / 255, a / 255);
+			return Color(r / 255, g / 255, b / 255, a / 255);
 		}
-		return Color::FromFloat(0.0f, 0.0f, 0.0f, 1.0f);
+		return Color(0.0f, 0.0f, 0.0f, 1.0f);
 	}
 
 	unsigned char *Image::GetPixelData() {

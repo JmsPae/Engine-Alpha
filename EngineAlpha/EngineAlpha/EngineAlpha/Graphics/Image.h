@@ -12,7 +12,7 @@ namespace alpha {
 	class Image {
 	public:
 		Image();
-		Image(int width, int height, Color fillColor = Color::FromFloat(1.0f, 1.0f, 1.0f, 1.0f));
+		Image(int width, int height, Color fillColor = Color(1.0f, 1.0f, 1.0f, 1.0f));
 		Image(std::string path);
 		
 		Color GetPixel(int x, int y);
