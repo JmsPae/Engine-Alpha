@@ -1,7 +1,5 @@
 #pragma once
 
-#include <glad/glad.h>
-
 #include "Image.h"
 #include "Shader.h"
 
@@ -16,6 +14,6 @@ namespace alpha {
 
 		~Texture();
 	private:
-		GLuint m_textureId;
+		unsigned int m_textureId;
 	};
 }

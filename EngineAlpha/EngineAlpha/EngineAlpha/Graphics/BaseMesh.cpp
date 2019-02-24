@@ -1,5 +1,7 @@
 #include "BaseMesh.h"
 
+#include <glad/glad.h>
+
 namespace alpha {
 	BaseMesh::BaseMesh() { // Nothing is needed to be done here 
 		

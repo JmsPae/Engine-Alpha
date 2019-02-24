@@ -1,5 +1,7 @@
 #include "Texture.h"
 
+#include <glad/glad.h>
+
 namespace alpha {
 	Texture::Texture() : m_textureId(0) {
 

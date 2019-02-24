@@ -1,6 +1,25 @@
 #include "Shader.h"
 
+#include <glad/glad.h>
+
 namespace alpha {
+	GLenum ShaderTypeToGL(ShaderType type) {
+		switch (type)
+		{
+		case ShaderType::FRAGMENT_SHADER:
+			return GL_FRAGMENT_SHADER;
+		case ShaderType::VERTEX_SHADER:
+			return GL_VERTEX_SHADER;
+		case ShaderType::GEOMETRY_SHADER:
+			return GL_GEOMETRY_SHADER;
+		default:
+			throw std::exception("Unknown shader type");
+		}
+
+		// Something went really wrong when we reach this
+		throw std::exception("Unknown shader type");
+	}
+
 	Shader::Shader(std::string vsPath, std::string fsPath) {
 		AddShader(vsPath, VERTEX_SHADER);
 		AddShader(fsPath, FRAGMENT_SHADER);
@@ -15,7 +34,7 @@ namespace alpha {
 		while (std::getline(myfile, line)) { pth.append(line + "\n"); }
 		myfile.close();
 
-		m_shaders.push_back(glCreateShader(type));
+		m_shaders.push_back(glCreateShader(ShaderTypeToGL(type)));
 		const char *chars = pth.c_str();
 		glShaderSource(m_shaders[m_shaders.size() - 1], 1, &chars, NULL);
 		glCompileShader(m_shaders[m_shaders.size() - 1]);
