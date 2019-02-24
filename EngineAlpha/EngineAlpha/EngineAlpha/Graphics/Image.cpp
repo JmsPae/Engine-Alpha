@@ -48,6 +48,6 @@ namespace alpha {
 	}
 
 	Image::~Image() {
-		
+    
 	}
 }

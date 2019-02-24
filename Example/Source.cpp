@@ -7,10 +7,10 @@
 class MainScene : public alpha::Scene {
 public:
 	MainScene() {
-		alpha::ResourceManager::Images["tank1"] = alpha::Image("tank1.png");
-		alpha::ResourceManager::Images["tank1_t"] = alpha::Image("tank1_t.png");
-		alpha::ResourceManager::Images["wall"] = alpha::Image("wall.png");
-		alpha::ResourceManager::Images["ground"] = alpha::Image("ground.png");
+		alpha::ResourceManager::Images.emplace(std::make_pair(std::string("tank1"), std::string("tank1.png")));
+		alpha::ResourceManager::Images.emplace(std::make_pair(std::string("tank1_t"), std::string("tank1_t.png")));
+		alpha::ResourceManager::Images.emplace(std::make_pair(std::string("wall"), std::string("wall.png")));
+		alpha::ResourceManager::Images.emplace(std::make_pair(std::string("ground"), std::string("ground.png")));
 
 		Time = 0.f;
 	}
