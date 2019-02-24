@@ -20,7 +20,16 @@ namespace alpha {
 		void Draw(Shader &shader);
 
 		template<class T>
+		bool HasComponent() {
+			static_assert(std::is_base_of<Component, T>(), "T is not a component.");
+
+			return GetComponent<T>() != nullptr;
+		}
+
+		template<class T>
 		Component* GetComponent() {
+			static_assert(std::is_base_of<Component, T>(), "T is not a component");
+
 			for (size_t i = 0; i < m_components.size(); i++) {
 				if (dynamic_cast<T*>(m_components[i])) {
 					return m_components[i];
