@@ -5,6 +5,10 @@ namespace alpha {
 		
 	}
 
+	void GameObject::_SetScene(Scene *scene) {
+		m_scene = scene;
+	}
+
 	void GameObject::AddComponent(Component *component) {
 		component->_SetParent(this);
 		component->Init();
@@ -34,6 +38,19 @@ namespace alpha {
 		}
 	}
 	
+	template<class T>
+	Component *GameObject::GetComponent() {
+		for (size_t i = 0; i < m_components.size(); i++) {
+			if (dynamic_cast<T*>(m_components[i])) {
+				return m_components[i];
+			}
+		}
+		return nullptr;
+	}
+
+	Scene *GameObject::GetScene() {
+		return m_scene;
+	}
 
 	GameObject::~GameObject() {
 		for (size_t i = 0; i < m_components.size(); i++) {

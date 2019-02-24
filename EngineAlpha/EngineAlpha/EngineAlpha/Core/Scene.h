@@ -8,6 +8,7 @@
 
 namespace alpha {
 	class Game;
+	class GameObject;
 	class Scene {
 	public:
 		Scene();

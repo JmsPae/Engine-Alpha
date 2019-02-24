@@ -129,6 +129,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Components\Player.cpp" />
+    <ClCompile Include="Components\EnemyManager.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Components\Tank.cpp" />
   </ItemGroup>
@@ -136,6 +137,7 @@
     <ClInclude Include="Components\Enemy.h" />
     <ClInclude Include="Components\Player.h" />
     <ClInclude Include="Components\Tank.h" />
+    <ClInclude Include="Components\EnemyManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
