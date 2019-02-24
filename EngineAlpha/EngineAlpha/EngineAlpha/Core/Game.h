@@ -2,6 +2,7 @@
 
 #include <time.h>
 
+#include "../Audio/AudioManager.h"
 #include "../Graphics/Window.h"
 #include "InputManager.h"
 #include "Scene.h"
@@ -39,12 +40,14 @@ namespace alpha {
 
 		InputManager &GetInputManager();
 		Window *GetWindow();
+		AudioManager &GetAudioManager();
 
 		~Game();
 	private:
 		Scene *m_currentScene;
 		Window *m_gameWindow;
 		InputManager m_inputManager;
+		AudioManager m_audioManager;
 		Timer m_deltaTimer;
 	};
 }

@@ -1,6 +1,7 @@
 #include <EngineAlpha/Engine.h>
 #include <EngineAlpha/Components/TestComponent.h>
 #include <EngineAlpha/Audio/AudioFile.h>
+#include <EngineAlpha/Audio/Sound.h>
 
 #include "Components/Player.h"
 #include "Components/Enemy.h"
@@ -28,6 +29,9 @@ public:
 
 		alpha::AudioFile file;
 		file.LoadFile("test.wav");
+
+		/*m_sound = std::shared_ptr<alpha::Sound>(new alpha::Sound(file));
+		m_sound->Play();*/ //uncomment if you want tinnitus
 
 		MainGame->GetInputManager().AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);
 		MainGame->GetInputManager().AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
@@ -95,6 +99,7 @@ private:
 	alpha::GameObject m_groundObject;
 
 	std::shared_ptr<alpha::Shader> m_shader;
+	std::shared_ptr<alpha::Sound> m_sound;
 };
 
 int main() {

@@ -1,7 +1,10 @@
 #include "Game.h"
 
 namespace alpha {
-	Game::Game() : m_deltaTimer(), m_gameWindow(new Window()) { }
+	Game::Game() 
+		: m_deltaTimer(), m_gameWindow(new Window()), m_audioManager()
+	{ 
+	}
 	
 	void Game::SetScene(Scene *newScene) {
 		if (m_currentScene) {
@@ -52,6 +55,10 @@ namespace alpha {
 
 	Window *Game::GetWindow() {
 		return m_gameWindow;
+	}
+
+	AudioManager &Game::GetAudioManager() {
+		return m_audioManager;
 	}
 
 	Game::~Game() {

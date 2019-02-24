@@ -14,9 +14,17 @@ namespace alpha {
 
 		void LoadFile(std::string file);
 
+		unsigned int GetChannels();
+		unsigned int GetSampleRate();
+		unsigned int GetFrames();
+		unsigned int GetFormat();
+
+		std::vector<short> &GetData();
+
 		~AudioFile();
 
 	private:
-		unsigned int m_channels, m_samplerate;
+		unsigned int m_channels, m_samplerate, m_frames, m_format;
+		std::vector<short> m_data;
 	};
 }
