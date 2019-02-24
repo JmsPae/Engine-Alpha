@@ -118,6 +118,9 @@
       <OptimizeReferences>true</OptimizeReferences>
       <AdditionalDependencies>EngineAlpha.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /E /Y "$(SolutionDir)Dependencies/DLL-Release" "$(SolutionDir)Release"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>

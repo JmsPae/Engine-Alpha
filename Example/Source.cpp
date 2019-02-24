@@ -30,12 +30,11 @@ public:
 		MainGame->GetInputManager().AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
 		MainGame->GetInputManager().AddInput("Shoot", alpha::InputType::Mouse, alpha::Mouse::ALPHA_MOUSE_BUTTON_LEFT);
 
-		m_shader = new alpha::Shader("Resources/main.vs", "Resources/main.fs");
+		m_shader = std::shared_ptr<alpha::Shader>(new alpha::Shader("Resources/main.vs", "Resources/main.fs"));
 
 
 
 		m_playerObject = alpha::GameObject();
-		//m_playerObject.AddComponent(new alpha::QuadComponent());
 		m_playerObject.AddComponent(new game::Player(MainGame->GetInputManager()));
 		AddGameObject(m_playerObject);
 
@@ -49,7 +48,6 @@ public:
 		AddGameObject(m_groundObject);
 
 		m_enemyObject = alpha::GameObject(glm::vec2(0, 3.5f));
-		//m_enemyObject.AddComponent(new alpha::QuadComponent());
 		m_enemyObject.AddComponent(new game::Enemy((game::Player*)m_playerObject.GetComponent<game::Player>()));
 		AddGameObject(m_enemyObject);
 
@@ -93,7 +91,7 @@ private:
 	alpha::GameObject m_testObject;
 	alpha::GameObject m_groundObject;
 
-	alpha::Shader *m_shader;
+	std::shared_ptr<alpha::Shader> m_shader;
 };
 
 int main() {

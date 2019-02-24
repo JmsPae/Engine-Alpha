@@ -20,6 +20,7 @@ namespace alpha {
 		throw std::exception("Unknown shader type");
 	}
 
+
 	Shader::Shader(std::string vsPath, std::string fsPath) {
 		AddShader(vsPath, VERTEX_SHADER);
 		AddShader(fsPath, FRAGMENT_SHADER);
@@ -64,7 +65,8 @@ namespace alpha {
 		glUseProgram(ProgramID);
 	}
 
-	template<class T> void Shader::SendUniform(std::string name, T variable) {
+	template<class T> 
+	void Shader::SendUniform(std::string name, T variable) {
 		printf("Unsupported type!\n");
 	}
 
