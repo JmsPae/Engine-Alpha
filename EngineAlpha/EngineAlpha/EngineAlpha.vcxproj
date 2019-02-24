@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="EngineAlpha\Audio\AudioFile.h" />
+    <ClInclude Include="EngineAlpha\Audio\AudioSource.h" />
     <ClInclude Include="EngineAlpha\Components\BaseColliderComponent.h" />
     <ClInclude Include="EngineAlpha\Graphics\Camera.h" />
     <ClInclude Include="EngineAlpha\Components\Component.h" />
@@ -43,6 +45,8 @@
     <ClInclude Include="EngineAlpha\Physics\RayCaster.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="EngineAlpha\Audio\AudioFile.cpp" />
+    <ClCompile Include="EngineAlpha\Audio\AudioSource.cpp" />
     <ClCompile Include="EngineAlpha\Components\BaseColliderComponent.cpp" />
     <ClCompile Include="EngineAlpha\Core\Game.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Camera.cpp" />
