@@ -1,9 +1,11 @@
 #pragma once
 
 #include <string>
+#include <vector>
+
+#include "stb_img.h"
 
 #include "../Maths.h"
-#include "stb_img.h"
 
 namespace alpha {
 	class Image {
@@ -20,6 +22,6 @@ namespace alpha {
 		int Width, Height;
 		int Components;
 	private:
-		unsigned char *m_imageData;
+		std::vector<unsigned char> m_data;
 	};
 }
