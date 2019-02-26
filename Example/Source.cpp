@@ -27,11 +27,13 @@ public:
 		alpha::ResourceManager::Textures["ground"] = alpha::Texture();
 		alpha::ResourceManager::Textures["ground"].SetImage(alpha::ResourceManager::Images["ground"]);
 
-		alpha::AudioFile file;
+		alpha::AudioFile file, file2;
 		file.LoadFile("test.wav");
+		file2.LoadFile("test2.wav");
 
-		/*m_sound = std::shared_ptr<alpha::Sound>(new alpha::Sound(file));
-		m_sound->Play();*/ //uncomment if you want tinnitus
+		m_sound.SetAudioFile(file);
+		m_sound.SetAudioFile(file2);
+		m_sound.Play(); //uncomment to play sound
 
 		MainGame->GetInputManager().AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);
 		MainGame->GetInputManager().AddInput("Forward", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_W, alpha::Keyboard::ALPHA_KEY_S);
@@ -99,11 +101,12 @@ private:
 	alpha::GameObject m_groundObject;
 
 	std::shared_ptr<alpha::Shader> m_shader;
-	std::shared_ptr<alpha::Sound> m_sound;
+	alpha::Sound m_sound;
 };
 
 int main() {
 	alpha::Game game;
+	alpha::AudioManager::MasterVolume = 0.5f;
 	game.Start(new MainScene());
 
 	return 0;

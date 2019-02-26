@@ -1,6 +1,8 @@
 #include "AudioManager.h"
 
 namespace alpha {
+	float AudioManager::MasterVolume = 1.f;
+
 	AudioManager::AudioManager() {
 		m_device = alcOpenDevice(nullptr);
 		if (!m_device) {

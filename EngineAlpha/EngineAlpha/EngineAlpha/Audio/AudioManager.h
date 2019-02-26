@@ -14,6 +14,8 @@ namespace alpha {
 
 		static void CheckError();
 
+		static float MasterVolume;
+
 		~AudioManager();
 	private:
 		ALCdevice *m_device;

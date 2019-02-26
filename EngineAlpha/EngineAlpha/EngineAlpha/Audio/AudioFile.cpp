@@ -20,6 +20,7 @@ namespace alpha {
 			printf("%i channels \n", myf.channels());
 			printf("%i samplerate \n", myf.samplerate());
 			printf("%i format \n", myf.format());
+			printf("%i frames \n", (int)myf.frames());
 			printf("%i wav16 %i wavu8 \n", SF_FORMAT_WAV|SF_FORMAT_PCM_16, SF_FORMAT_WAV|SF_FORMAT_PCM_U8);
 			printf("%i bytes \n", m_data.size() * sizeof(short));
 		}
