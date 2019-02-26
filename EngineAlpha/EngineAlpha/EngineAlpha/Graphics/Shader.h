@@ -7,7 +7,7 @@
 #include <map>
 
 #include "../glm/glm.hpp"
-#include "../Color.h"
+#include "Color.h"
 
 /*
 	The Shader class handles everything to do with the shader on the hardware aswell as the software side.

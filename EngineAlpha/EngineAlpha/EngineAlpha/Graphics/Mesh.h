@@ -3,7 +3,7 @@
 #include <vector>
 
 #include "../Maths.h"
-#include "../Color.h"
+#include "Color.h"
 
 /*
 	The Mesh class is the representation of a (technically 3d) mesh. Its the 

@@ -43,7 +43,7 @@ namespace alpha {
 		if (stereo)
 			return AL_FORMAT_STEREO16;
 		return AL_FORMAT_MONO16;
-			
+		
 
 		/*switch (format) {
 		case SF_FORMAT_WAV | SF_FORMAT_PCM_16:

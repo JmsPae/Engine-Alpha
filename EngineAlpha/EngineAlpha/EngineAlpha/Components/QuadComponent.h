@@ -2,7 +2,7 @@
 
 #include "Component.h"
 #include "../Graphics/BaseMesh.h"
-#include "../Color.h"
+#include "../Graphics/Color.h"
 
 namespace alpha {
 	class QuadComponent : public Component {

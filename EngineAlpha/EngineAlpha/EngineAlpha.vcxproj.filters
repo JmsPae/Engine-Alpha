@@ -72,13 +72,13 @@
     <ClCompile Include="EngineAlpha\Audio\AudioFile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="EngineAlpha\Color.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="EngineAlpha\Audio\Sound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EngineAlpha\Audio\AudioManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineAlpha\Graphics\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -152,13 +152,13 @@
     <ClInclude Include="EngineAlpha\Audio\AudioFile.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EngineAlpha\Color.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EngineAlpha\Audio\Sound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EngineAlpha\Audio\AudioManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineAlpha\Graphics\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

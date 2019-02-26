@@ -1,7 +1,6 @@
 #pragma once
 
 #include "Maths.h"
-#include "Color.h"
 
 #include "Core/Game.h"
 #include "Core/Scene.h"
@@ -13,6 +12,7 @@
 #include "Graphics/Camera.h"
 #include "Graphics/Image.h"
 #include "Graphics/Texture.h"
+#include "Graphics/Color.h"
 
 #include "Components/QuadComponent.h"
 #include "Components/QuadColliderComponent.h"

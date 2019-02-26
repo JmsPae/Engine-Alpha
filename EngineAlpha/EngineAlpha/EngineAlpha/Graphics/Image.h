@@ -6,7 +6,7 @@
 #include "stb_img.h"
 
 #include "../Maths.h"
-#include "../Color.h"
+#include "Color.h"
 
 namespace alpha {
 	class Image {
