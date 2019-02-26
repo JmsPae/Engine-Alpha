@@ -22,7 +22,6 @@ namespace alpha {
 		bool Looping;
 	private:
 		unsigned int m_source, m_buffer;
-		bool m_firstSet;
 
 		static inline ALenum ToAlFormat(unsigned int channels, unsigned int format);
 	};

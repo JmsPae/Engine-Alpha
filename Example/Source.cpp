@@ -27,12 +27,14 @@ public:
 		alpha::ResourceManager::Textures["ground"] = alpha::Texture();
 		alpha::ResourceManager::Textures["ground"].SetImage(alpha::ResourceManager::Images["ground"]);
 
-		alpha::AudioFile file, file2;
+		alpha::AudioFile file, file2, file3;
 		file.LoadFile("test.wav");
 		file2.LoadFile("test2.wav");
+		file3.LoadFile("test3.wav");
 
 		m_sound.SetAudioFile(file);
 		m_sound.SetAudioFile(file2);
+		m_sound.SetAudioFile(file3);
 		m_sound.Play(); //uncomment to play sound
 
 		MainGame->GetInputManager().AddInput("Right", alpha::InputType::Keyboard, alpha::Keyboard::ALPHA_KEY_A, alpha::Keyboard::ALPHA_KEY_D);

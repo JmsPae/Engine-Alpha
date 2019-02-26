@@ -2,7 +2,6 @@
 
 namespace alpha {
 	Sound::Sound() {
-		m_firstSet = true;
 		m_source = 0;
 		m_buffer = 0;
 		Position = glm::vec3(0);
@@ -15,15 +14,13 @@ namespace alpha {
 	void Sound::SetAudioFile(AudioFile & file) {
 		if (!m_source)
 			alGenSources((ALuint)1, &m_source);
-
 		if (!m_buffer)
 			alGenBuffers((ALuint)1, &m_buffer);
-		
-		//Errors when setting more than once
+
+		alSourcei(m_source, AL_BUFFER, 0);
 		alBufferData(m_buffer, ToAlFormat(file.GetChannels(), file.GetFormat()), &file.GetData()[0], file.GetData().size() * sizeof(short), file.GetSampleRate());
 		AudioManager::CheckError();
 		alSourcei(m_source, AL_BUFFER, m_buffer);
-		m_firstSet = false;
 	}
 
 	void Sound::Play() {
