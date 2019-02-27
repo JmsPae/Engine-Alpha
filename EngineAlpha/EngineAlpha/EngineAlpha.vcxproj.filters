@@ -161,5 +161,8 @@
     <ClInclude Include="EngineAlpha\Graphics\Color.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EngineAlpha\Core\Signal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
