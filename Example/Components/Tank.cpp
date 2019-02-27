@@ -3,6 +3,11 @@
 namespace game {
 	Tank::Tank(float health) : Health(health), TurretDir(), m_tracerComponent(new alpha::QuadComponent()), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)), m_quadComponent(new alpha::QuadComponent()), m_turretQuadComponent(new alpha::QuadComponent()) {
 
+		auto audioFile = new alpha::AudioFile();
+		audioFile->LoadFile("test.wav");
+		auto sound = new alpha::Sound();
+		sound->SetAudioFile(*audioFile);
+		m_audioPlayer = new alpha::AudioPlayerComponent(sound);
 	}
 
 	void Tank::Init() {
@@ -10,6 +15,7 @@ namespace game {
 		Parent->AddComponent(m_colliderComponent);
 		Parent->AddComponent(m_quadComponent);
 		Parent->AddComponent(m_tracerComponent);
+		Parent->AddComponent(m_audioPlayer);
 		m_turretObject.AddComponent(m_turretQuadComponent);
 
 		TankInit();
@@ -31,10 +37,12 @@ namespace game {
 	}
 
 	Tank::~Tank() {
-
 	}
 	
 	void Tank::Fire(float damage) {
+
+		m_audioPlayer->Play();
+
 		alpha::RayCaster raycast;
 		auto callback = raycast.CastRay(Parent->Position, Parent->Position + TurretDir * 100.f);
 		if (callback.Hit) {

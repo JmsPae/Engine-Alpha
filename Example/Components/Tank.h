@@ -31,5 +31,6 @@ namespace game {
 		alpha::GameObject m_turretObject;
 		alpha::QuadColliderComponent *m_colliderComponent;
 		alpha::QuadComponent *m_quadComponent, *m_tracerComponent, *m_turretQuadComponent;
+		alpha::AudioPlayerComponent *m_audioPlayer;
 	};
 }
