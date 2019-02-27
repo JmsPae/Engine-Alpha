@@ -9,8 +9,6 @@
 namespace alpha {
 	Window::Window(int windowWidth, int windowHeight, std::string windowName) : SizeX(windowWidth), SizeY(windowHeight) {
 		if (!glfwInit()) {
-			// printf("ERROR: GLFW Failed to initialize!\n");
-
 			LOG_ERROR("GLFW Failed to initialize!");
 
 			std::cin.get();
@@ -22,8 +20,6 @@ namespace alpha {
 		m_glfwWindow = glfwCreateWindow(windowWidth, windowHeight, windowName.c_str(), nullptr, nullptr);
 
 		if (!m_glfwWindow) {
-			// printf("ERROR: GLFW Window Failed to create!\n");
-
 			LOG_ERROR("GLFW Window Failed to create!");
 
 			std::cin.get();
@@ -33,8 +29,6 @@ namespace alpha {
 		glfwMakeContextCurrent(m_glfwWindow);
 
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
-			// std::cout << "Failed to initialize GLAD" << std::endl;
-
 			LOG_ERROR("Failed to initialize GLAD");
 
 			std::cin.get();

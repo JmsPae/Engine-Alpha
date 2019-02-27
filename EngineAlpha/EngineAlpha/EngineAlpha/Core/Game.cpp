@@ -29,9 +29,7 @@ namespace alpha {
 			FrameTimer += dt;
 			TotalFrames++;
 			if (FrameTimer >= 1) {
-				// printf("%f FPS | %f MS \n", (float)TotalFrames / FrameTimer, (FrameTimer / (float)TotalFrames) * 1000.f);
-
-				DEBUG("%f FPS | %f MS", (float)TotalFrames / FrameTimer, (FrameTimer / (float)TotalFrames) * 1000.0f);
+				DEBUG("{0} FPS | {1} MS", (float)TotalFrames / FrameTimer, (FrameTimer / (float)TotalFrames) * 1000.0f);
 
 				TotalFrames = 0;
 				FrameTimer = 0;

@@ -47,10 +47,8 @@ namespace alpha {
 		glGetShaderiv(m_shaders[m_shaders.size() - 1], GL_COMPILE_STATUS, &success);
 		if (!success) {
 			glGetShaderInfoLog(m_shaders[m_shaders.size() - 1], 1024, nullptr, infoLog);
-			
-			// std::cout << "Error at " << path << ", \n" << infoLog << std::endl;
 
-			LOG_ERROR("Shader Error at %s\n%s", path, infoLog);
+			LOG_ERROR("Shader Error at {0}\n{1}", path, infoLog);
 		}
 	}
 
@@ -72,9 +70,6 @@ namespace alpha {
 
 	template<class T> 
 	void Shader::SendUniform(std::string name, T variable) {
-		// printf("Unsupported type!\n");
-		// LOG_ERROR("Unsupported shadr uniform type!");
-		
 		static_assert(true, "Unsupported shader uniform type!");
 	}
 

@@ -22,7 +22,6 @@ namespace alpha {
 			glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, image.Width, image.Height, 0, GL_RGBA, GL_UNSIGNED_BYTE, image.GetPixelData());
 		}
 		else {
-			// printf("Failed to create texture! \n");
 			LOG_ERROR("Failed to create texture!");
 		}
 	}

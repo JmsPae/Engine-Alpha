@@ -25,8 +25,7 @@ namespace alpha {
 			Height = 0;
 			Components = 0;
 
-			// printf("Image %s faled to load!\n", path.c_str());
-			LOG_ERROR("Image %s failed to load!", path);
+			LOG_ERROR("Image {} failed to load!", path);
 		}
 		else {
 			m_data = std::vector<unsigned char>(m_imageData, m_imageData + Width * Height * Components);
