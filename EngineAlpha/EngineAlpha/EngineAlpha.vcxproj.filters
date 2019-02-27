@@ -81,6 +81,9 @@
     <ClCompile Include="EngineAlpha\Graphics\Color.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="EngineAlpha\Core\Log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EngineAlpha\Maths.h">
@@ -162,6 +165,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EngineAlpha\Core\Signal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineAlpha\Core\Log.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

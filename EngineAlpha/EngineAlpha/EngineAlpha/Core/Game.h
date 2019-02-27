@@ -6,6 +6,7 @@
 #include "../Graphics/Window.h"
 #include "InputManager.h"
 #include "Scene.h"
+#include "Log.h"
 
 namespace alpha {
 	class Timer {

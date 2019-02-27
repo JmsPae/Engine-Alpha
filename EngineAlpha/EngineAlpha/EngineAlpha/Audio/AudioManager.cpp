@@ -1,12 +1,14 @@
 #include "AudioManager.h"
 
+#include "../Core/Log.h"
+
 namespace alpha {
 	float AudioManager::MasterVolume = 1.f;
 
 	AudioManager::AudioManager() {
 		m_device = alcOpenDevice(nullptr);
 		if (!m_device) {
-			printf("OpenAL device failed to initialize!\n");
+			LOG_ERROR("OpenAL device failed to initialize!\n");
 		}
 
 		ListAudioDevices(alcGetString(nullptr, ALC_DEVICE_SPECIFIER));
@@ -29,21 +31,25 @@ namespace alpha {
 		const ALCchar *device = devices, *next = devices + 1;
 		size_t len = 0;
 
-		fprintf(stdout, "Devices list:\n");
-		fprintf(stdout, "----------\n");
+		LOG("Devices list:");
+		LOG("-------------");
+
 		while (device && *device != '\0' && next && *next != '\0') {
-			fprintf(stdout, "%s\n", device);
+
+			LOG("{}", device);
+
 			len = strlen(device);
 			device += (len + 1);
 			next += (len + 2);
 		}
-		fprintf(stdout, "----------\n");
+
+		LOG("-------------");
 	}
 
 	void AudioManager::CheckError() {
 		ALCenum error = alGetError();
 		if (error != AL_NO_ERROR)
-			printf("OpenAL error %i\n", error);
+			LOG_ERROR("OpenAL error {}", error);
 	}
 
 	AudioManager::~AudioManager() {

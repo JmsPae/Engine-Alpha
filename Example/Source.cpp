@@ -107,6 +107,7 @@ private:
 };
 
 int main() {
+	alpha::Log::Init(); // TODO: Do this in alpha::Game
 	alpha::Game game;
 	alpha::AudioManager::MasterVolume = 0.5f;
 	game.Start(new MainScene());
