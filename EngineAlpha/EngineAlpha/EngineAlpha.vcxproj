@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="EngineAlpha\Audio\AudioManager.h" />
     <ClInclude Include="EngineAlpha\Audio\AudioFile.h" />
+    <ClInclude Include="EngineAlpha\Core\Signal.h" />
     <ClInclude Include="EngineAlpha\Graphics\Color.h" />
     <ClInclude Include="EngineAlpha\Components\BaseColliderComponent.h" />
     <ClInclude Include="EngineAlpha\Graphics\Camera.h" />
