@@ -18,6 +18,7 @@
 #include "Graphics/Texture.h"
 #include "Graphics/Color.h"
 
+#include "Components/AudioPlayerComponent.h"
 #include "Components/QuadComponent.h"
 #include "Components/QuadColliderComponent.h"
 
