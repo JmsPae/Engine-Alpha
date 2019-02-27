@@ -5,6 +5,7 @@
 #include "Core/Game.h"
 #include "Core/GameObject.h"
 #include "Core/InputManager.h"
+#include "Core/Log.h"
 #include "Core/Scene.h"
 #include "Core/Signal.h"
 #include "Core/ResourceManager.h"

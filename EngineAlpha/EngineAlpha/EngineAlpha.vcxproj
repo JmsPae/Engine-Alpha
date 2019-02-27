@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="EngineAlpha\Audio\AudioManager.h" />
     <ClInclude Include="EngineAlpha\Audio\AudioFile.h" />
+    <ClInclude Include="EngineAlpha\Core\Log.h" />
     <ClInclude Include="EngineAlpha\Core\Signal.h" />
     <ClInclude Include="EngineAlpha\Graphics\Color.h" />
     <ClInclude Include="EngineAlpha\Components\BaseColliderComponent.h" />
@@ -50,6 +51,7 @@
   <ItemGroup>
     <ClCompile Include="EngineAlpha\Audio\AudioManager.cpp" />
     <ClCompile Include="EngineAlpha\Audio\AudioFile.cpp" />
+    <ClCompile Include="EngineAlpha\Core\Log.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Color.cpp" />
     <ClCompile Include="EngineAlpha\Components\BaseColliderComponent.cpp" />
     <ClCompile Include="EngineAlpha\Core\Game.cpp" />
@@ -165,7 +167,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile />
       <LanguageStandard>stdcpp17</LanguageStandard>
-      <TreatWarningAsError>true</TreatWarningAsError>
+      <TreatWarningAsError>false</TreatWarningAsError>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
