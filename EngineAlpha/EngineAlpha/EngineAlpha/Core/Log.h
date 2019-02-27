@@ -29,3 +29,20 @@ template<typename... Args>
 void DEBUG(const std::string& format, const Args&... args) {
 	alpha::Log::GetCoreLogger()->debug(format.c_str(), args...);
 }
+
+template<typename... Args>
+void AssertionFailure(const char* expr, const char* file, int line, const char* func) {
+	alpha::Log::GetCoreLogger()->critical(
+		"***ASSERTION FAILURE***\n"
+		"Expression:\n"
+		"{0}\n"
+		"In ::{1}\n"
+		"File: {2}\n"
+		"Line: {3}",
+		expr, func, file, line);
+
+	std::abort();
+}
+
+#define ASSERTION_FAILURE(X) AssertionFailure(X, __FILE__, __LINE__, __FUNCTION__)
+#define ASSERT(X) void((!(X))?(ASSERTION_FAILURE(#X),0):0)
