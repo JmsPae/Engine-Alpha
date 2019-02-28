@@ -1,12 +1,9 @@
 #pragma once
 
-#include <time.h>
+#include <chrono>
 
 #include "../Audio/AudioManager.h"
-#include "../Graphics/Window.h"
 #include "InputManager.h"
-#include "Scene.h"
-#include "Log.h"
 
 namespace alpha {
 	class Timer {
@@ -32,6 +29,7 @@ namespace alpha {
 	};
 
 	class Scene;
+	class Window;
 	class Game {
 	public:
 		Game();
@@ -51,4 +49,7 @@ namespace alpha {
 		AudioManager m_audioManager;
 		Timer m_deltaTimer;
 	};
+
+	// To be defined by Client.
+	Scene* CreateMainScene();
 }

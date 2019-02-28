@@ -1,7 +1,5 @@
+#define ALPHA_ENTRY_POINT
 #include <EngineAlpha/Engine.h>
-#include <EngineAlpha/Components/TestComponent.h>
-#include <EngineAlpha/Audio/AudioFile.h>
-#include <EngineAlpha/Audio/Sound.h>
 
 #include "Components/Player.h"
 #include "Components/Enemy.h"
@@ -106,11 +104,6 @@ private:
 	alpha::Sound m_sound;
 };
 
-int main() {
-	alpha::Log::Init(); // TODO: Do this in alpha::Game
-	alpha::Game game;
-	alpha::AudioManager::MasterVolume = 0.5f;
-	game.Start(new MainScene());
-
-	return 0;
+alpha::Scene* alpha::CreateMainScene() {
+	return new MainScene();
 }
