@@ -24,6 +24,7 @@
     <ClInclude Include="EngineAlpha\Components\AudioPlayerComponent.h" />
     <ClInclude Include="EngineAlpha\Core\Log.h" />
     <ClInclude Include="EngineAlpha\Core\Signal.h" />
+    <ClInclude Include="EngineAlpha\EntryPoint.h" />
     <ClInclude Include="EngineAlpha\Graphics\Color.h" />
     <ClInclude Include="EngineAlpha\Components\BaseColliderComponent.h" />
     <ClInclude Include="EngineAlpha\Graphics\Camera.h" />

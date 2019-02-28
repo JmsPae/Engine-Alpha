@@ -24,3 +24,9 @@
 
 #include "Physics/PhysicsWorld.h"
 #include "Physics/RayCaster.h"
+
+// ---- Entry Point ----
+#ifdef ALPHA_ENTRY_POINT
+#include "EntryPoint.h"
+#endif // !NO_ENTRY_POINT
+// ---------------------

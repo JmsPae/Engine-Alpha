@@ -1,5 +1,7 @@
 #include "Game.h"
 
+#include "Scene.h"
+#include "../Graphics/Window.h"
 #include "Log.h"
 
 namespace alpha {

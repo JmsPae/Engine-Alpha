@@ -176,5 +176,8 @@
     <ClInclude Include="EngineAlpha\Components\AudioPlayerComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EngineAlpha\EntryPoint.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
