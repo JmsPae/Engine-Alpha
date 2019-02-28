@@ -20,6 +20,15 @@ namespace alpha {
 
 		void Draw(Shader &shader);
 
+		template<typename T, typename... Args>
+		void AddComponent(Args&&... args) {
+			static_assert(std::is_base_of<Component, T>(), "T is not a component.");
+
+			auto component = static_cast<T*>(new T(std::forward<Args>(args)...));
+
+			AddComponent(component);
+		}
+
 		template<class T>
 		bool HasComponent() {
 			static_assert(std::is_base_of<Component, T>(), "T is not a component.");

@@ -16,7 +16,7 @@ namespace game {
 		Parent->AddComponent(m_quadComponent);
 		Parent->AddComponent(m_tracerComponent);
 		Parent->AddComponent(m_audioPlayer);
-		m_turretObject.AddComponent(new alpha::TransformComponent());
+		m_turretObject.AddComponent<alpha::TransformComponent>();
 		m_turretObject.AddComponent(m_turretQuadComponent);
 
 		TankInit();
