@@ -11,7 +11,7 @@ namespace alpha {
 
 	class GameObject {
 	public:
-		GameObject(glm::vec2 position = glm::vec2(0), float rotation = 0.f);
+		GameObject();
 
 		void _SetScene(Scene *scene);
 		void AddComponent(Component *component);

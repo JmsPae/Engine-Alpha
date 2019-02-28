@@ -3,8 +3,7 @@
 #include "../Components/TransformComponent.h"
 
 namespace alpha {
-	GameObject::GameObject(glm::vec2 position, float rotation) {
-		AddComponent(new TransformComponent(position, glm::vec2(1), rotation));
+	GameObject::GameObject() {
 	}
 
 	void GameObject::_SetScene(Scene *scene) {

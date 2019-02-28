@@ -44,20 +44,23 @@ public:
 
 
 		m_playerObject = alpha::GameObject();
+		m_playerObject.AddComponent(new alpha::TransformComponent());
 		m_playerObject.AddComponent(new game::Player(MainGame->GetInputManager()));
 		AddGameObject(m_playerObject);
 
-		/*m_testObject = alpha::GameObject();
-		m_testObject.GetTransformComponent().Position = glm::vec2(0, 1.5f);
+		m_testObject = alpha::GameObject();
+		m_testObject.AddComponent(new alpha::TransformComponent(glm::vec2(0, 1.5f), glm::vec2(1), 0.0f));
 		m_testObject.AddComponent(new alpha::QuadComponent());
 		m_testObject.AddComponent(new alpha::QuadColliderComponent(glm::vec2(1), 0.f));
-		AddGameObject(m_testObject);*/
+		AddGameObject(m_testObject);
 
 		m_groundObject = alpha::GameObject();
+		m_groundObject.AddComponent(new alpha::TransformComponent());
 		m_groundObject.AddComponent(new alpha::QuadComponent(0, glm::vec2(20.f), glm::vec2(20.f)));
 		AddGameObject(m_groundObject);
 
-		m_enemyObject = alpha::GameObject(glm::vec2(0, 3.5f));
+		m_enemyObject = alpha::GameObject();
+		m_enemyObject.AddComponent(new alpha::TransformComponent(glm::vec2(0, 3.5f), glm::vec2(1), 0.0f));
 		m_enemyObject.AddComponent(new game::Enemy((game::Player*)m_playerObject.GetComponent<game::Player>()));
 		AddGameObject(m_enemyObject);
 
