@@ -3,6 +3,7 @@
 #include "../Maths.h"
 #include "../Core/Scene.h"
 #include "../Components/Component.h"
+#include "../Components/TransformComponent.h"
 
 namespace alpha {
 	class Component;
@@ -27,24 +28,25 @@ namespace alpha {
 		}
 
 		template<class T>
-		Component* GetComponent() {
+		T* GetComponent() {
 			static_assert(std::is_base_of<Component, T>(), "T is not a component");
 
 			for (size_t i = 0; i < m_components.size(); i++) {
 				if (dynamic_cast<T*>(m_components[i])) {
-					return m_components[i];
+					return dynamic_cast<T*>(m_components[i]);
 				}
 			}
+
 			return nullptr;
 		}
 
 		Scene *GetScene();
 
+		glm::mat4 GetTransform();
+		TransformComponent& GetTransformComponent();
+
 		~GameObject();
 
-		float Rotation;
-		glm::vec2 Position;
-		glm::mat4 Transform;
 	private:
 		Scene *m_scene;
 		std::vector<Component*> m_components;

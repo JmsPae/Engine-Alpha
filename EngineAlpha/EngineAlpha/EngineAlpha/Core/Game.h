@@ -41,6 +41,8 @@ namespace alpha {
 		Window *GetWindow();
 		AudioManager &GetAudioManager();
 
+
+
 		~Game();
 	private:
 		Scene *m_currentScene;

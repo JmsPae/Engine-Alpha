@@ -24,8 +24,8 @@ namespace game {
 	void Tank::Update(float dt) {
 		TankUpdate(dt);
 		
-		m_turretObject.Position = Parent->Position;
-		m_turretObject.Rotation = atan2f(TurretDir.y, TurretDir.x);
+		m_turretObject.GetTransformComponent().Position = Parent->GetTransformComponent().Position;
+		m_turretObject.GetTransformComponent().Rotation = atan2f(TurretDir.y, TurretDir.x);
 		m_turretObject.Update(dt);
 	}
 
@@ -44,7 +44,8 @@ namespace game {
 		m_audioPlayer->Play();
 
 		alpha::RayCaster raycast;
-		auto callback = raycast.CastRay(Parent->Position, Parent->Position + TurretDir * 100.f);
+		auto position = Parent->GetTransformComponent().Position;
+		auto callback = raycast.CastRay(position, position + TurretDir * 100.f);
 		if (callback.Hit) {
 			printf("Hit! \n");
 			callback.Collider->SetVelocity(callback.Collider->GetVelocity() + callback.RayDirection * 0.25f);
@@ -66,7 +67,8 @@ namespace game {
 	}
 
 	void Tank::SetDirection(glm::vec2 dir) {
-		m_colliderComponent->SetRotation(atan2f(dir.y - Parent->Position.y, dir.x - Parent->Position.x));
+		auto pos = Parent->GetTransformComponent().Position;
+		m_colliderComponent->SetRotation(atan2f(dir.y - pos.y, dir.x - pos.x));
 	}
 
 	float Tank::GetRotation() {

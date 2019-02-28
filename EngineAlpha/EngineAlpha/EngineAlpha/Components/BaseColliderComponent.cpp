@@ -1,5 +1,8 @@
 #include "BaseColliderComponent.h"
 
+#include "../Maths.h"
+#include "../Core/GameObject.h"
+
 namespace alpha {
 	BaseColliderComponent::BaseColliderComponent() {
 
@@ -22,8 +25,9 @@ namespace alpha {
 		if (Body) {
 			Body->SetLinearDamping(Friction); //Awful, awful, awful!!
 			Body->SetAngularDamping(Friction);
-			Parent->Position = GetPosition();
-			Parent->Rotation = GetRotation();
+			auto transform = Parent->GetTransformComponent();
+			transform.Position = GetPosition();
+			transform.Rotation = GetRotation();
 		}
 	}
 	

@@ -1,5 +1,7 @@
 #include "QuadComponent.h"
 
+#include "../Core/GameObject.h"
+
 namespace alpha {
 	QuadComponent::QuadComponent(unsigned int priority, glm::vec2 size, glm::vec2 uvScale) : Size(size), UvScale(uvScale), Color(alpha::Color(1.0f, 1.0f, 1.0f, 1.0f)) {
 		m_meshRenderer.Priority = priority;
@@ -30,7 +32,7 @@ namespace alpha {
 
 	void QuadComponent::Draw(Shader & shader) {
 		shader.SendUniform("ColorMult", Color);
-		shader.SendUniform("Transform", Parent->Transform);
+		shader.SendUniform("Transform", Parent->GetTransform());
 		m_meshRenderer.Draw();
 	}
 	

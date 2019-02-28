@@ -1,10 +1,8 @@
 #pragma once
 
-#include "../Graphics/Shader.h"
-#include "../Core/GameObject.h"
-
 namespace alpha {
 	class GameObject;
+	class Shader;
 
 	class Component {
 	public:
