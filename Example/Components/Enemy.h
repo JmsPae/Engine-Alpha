@@ -8,7 +8,6 @@ namespace game {
 	class Enemy : public game::Tank {
 	public:
 		Enemy(Player *player) : m_player(player) {
-
 		}
 
 		void TankInit() override {
@@ -16,17 +15,19 @@ namespace game {
 		}
 
 		void TankUpdate(float dt) override {
-			auto transform = Parent->GetTransformComponent();
-			auto playerTransform = m_player->Parent->GetTransformComponent();
-			if (glm::distance(transform.Position, playerTransform.Position) > 2.f) {
-				SetMove(3.f * dt * glm::dot(glm::normalize(RotDirPos - transform.Position), glm::normalize(playerTransform.Position - transform.Position)));
+			
+			auto& ownTransform = Parent->GetTransformComponent();
+			auto& playerTransform = m_player->Parent->GetTransformComponent();
+
+			if (glm::distance(ownTransform.Position, playerTransform.Position) > 2.f) {
+				SetMove(3.f * dt * glm::dot(glm::normalize(RotDirPos - ownTransform.Position), glm::normalize(playerTransform.Position - ownTransform.Position)));
 			}
 
 			RotDirPos += (playerTransform.Position - RotDirPos) * dt * 0.5f;
 			TurretDirPos += (playerTransform.Position - TurretDirPos) * dt * 1.f;
 
 			SetDirection(RotDirPos);
-			SetTurretDirection(glm::normalize(TurretDirPos - transform.Position));
+			SetTurretDirection(glm::normalize(TurretDirPos - ownTransform.Position));
 		}
 
 		~Enemy() {

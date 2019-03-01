@@ -15,7 +15,7 @@ namespace alpha {
 	}
 
 	glm::mat4 TransformComponent::GetTransform() const {
-		return glm::rotate(Rotation, glm::vec3(0, 0, 1))
-			* glm::translate(glm::vec3(Position, 0));
+		return glm::translate(glm::vec3(Position, 0))
+			* glm::rotate(Rotation, glm::vec3(0, 0, 1));
 	}
 }

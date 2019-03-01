@@ -8,24 +8,45 @@ namespace alpha {
 
 	}
 
-	glm::vec2 BaseColliderComponent::GetPosition() { return glm::vec2(Body->GetPosition().x, Body->GetPosition().y); }
-	float BaseColliderComponent::GetRotation() { return Body->GetAngle(); }
+	glm::vec2 BaseColliderComponent::GetPosition() {
+		return glm::vec2(Body->GetPosition().x, Body->GetPosition().y);
+	}
 
-	glm::vec2 BaseColliderComponent::GetVelocity() { return glm::vec2(Body->GetLinearVelocity().x, Body->GetLinearVelocity().y); }
-	float BaseColliderComponent::GetAngularVelocity() { return Body->GetAngularVelocity(); }
+	float BaseColliderComponent::GetRotation() {
+		return Body->GetAngle();
+	}
 
-	void BaseColliderComponent::SetPosition(glm::vec2 pos) { Body->SetTransform(b2Vec2(pos.x, pos.y), Body->GetAngle()); }
-	void BaseColliderComponent::SetRotation(float rotation) { Body->SetTransform(Body->GetPosition(), rotation); }
+	glm::vec2 BaseColliderComponent::GetVelocity() {
+		return glm::vec2(Body->GetLinearVelocity().x, Body->GetLinearVelocity().y);
+	}
 
-	void BaseColliderComponent::SetVelocity(glm::vec2 vel) { Body->SetLinearVelocity(b2Vec2(vel.x, vel.y)); }
-	void BaseColliderComponent::SetAngularVelocity(float angVel) { Body->SetAngularVelocity(angVel); }
+	float BaseColliderComponent::GetAngularVelocity() {
+		return Body->GetAngularVelocity();
+	}
+
+	void BaseColliderComponent::SetPosition(glm::vec2 pos) {
+		Body->SetTransform(b2Vec2(pos.x, pos.y), Body->GetAngle());
+	}
+
+	void BaseColliderComponent::SetRotation(float rotation) {
+		Body->SetTransform(Body->GetPosition(), rotation);
+	}
+
+	void BaseColliderComponent::SetVelocity(glm::vec2 vel) {
+		Body->SetLinearVelocity(b2Vec2(vel.x, vel.y));
+	}
+
+	void BaseColliderComponent::SetAngularVelocity(float angVel) {
+		Body->SetAngularVelocity(angVel);
+	}
 
 
 	void BaseColliderComponent::Update(float dt) {
 		if (Body) {
 			Body->SetLinearDamping(Friction); //Awful, awful, awful!!
 			Body->SetAngularDamping(Friction);
-			auto transform = Parent->GetTransformComponent();
+
+			auto& transform = Parent->GetTransformComponent();
 			transform.Position = GetPosition();
 			transform.Rotation = GetRotation();
 		}

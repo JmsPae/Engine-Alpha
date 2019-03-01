@@ -1,7 +1,13 @@
 #include "Tank.h"
 
 namespace game {
-	Tank::Tank(float health) : Health(health), TurretDir(), m_tracerComponent(new alpha::QuadComponent()), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)), m_quadComponent(new alpha::QuadComponent()), m_turretQuadComponent(new alpha::QuadComponent()) {
+	Tank::Tank(float health)
+		: Health(health),
+		TurretDir(),
+		m_tracerComponent(new alpha::QuadComponent()),
+		m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)),
+		m_quadComponent(new alpha::QuadComponent()),
+		m_turretQuadComponent(new alpha::QuadComponent()) {
 
 		auto audioFile = new alpha::AudioFile();
 		audioFile->LoadFile("test.wav");
@@ -25,8 +31,9 @@ namespace game {
 	void Tank::Update(float dt) {
 		TankUpdate(dt);
 		
-		m_turretObject.GetTransformComponent().Position = Parent->GetTransformComponent().Position;
-		m_turretObject.GetTransformComponent().Rotation = atan2f(TurretDir.y, TurretDir.x);
+		auto& turrentTransform = m_turretObject.GetTransformComponent();
+		turrentTransform.Position = Parent->GetTransformComponent().Position;
+		turrentTransform.Rotation = atan2f(TurretDir.y, TurretDir.x);
 		m_turretObject.Update(dt);
 	}
 
@@ -51,7 +58,7 @@ namespace game {
 			printf("Hit! \n");
 			callback.Collider->SetVelocity(callback.Collider->GetVelocity() + callback.RayDirection * 0.25f);
 
-			auto tankComp = (Tank*)callback.Collider->Parent->GetComponent<Tank>();
+			auto tankComp = callback.Collider->Parent->GetComponent<Tank>();
 			if (tankComp) {
 				tankComp->Health -= damage;
 				printf("%f \n", tankComp->Health);
