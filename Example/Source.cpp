@@ -52,6 +52,23 @@ public:
 		m_testObject.AddComponent(new alpha::QuadColliderComponent(glm::vec2(1), 0.f));
 		AddGameObject(m_testObject);
 
+		m_testCircle = alpha::GameObject(glm::vec2(4, 4));
+		m_testCircle.AddComponent(new alpha::QuadComponent());
+		m_testCircle.AddComponent(new alpha::CircleColliderComponent(0.5f, 0.f));
+		AddGameObject(m_testCircle);
+
+		m_testPolygon = alpha::GameObject(glm::vec2(-4, 4));
+		m_testPolygon.AddComponent(new alpha::QuadComponent());
+		auto vertices = std::vector<glm::vec2>{
+			glm::vec2(-1, 2),
+			glm::vec2(-1, 0),
+			glm::vec2(0, -3),
+			glm::vec2(1, 0),
+			glm::vec2(1, 1)
+		};
+		m_testPolygon.AddComponent(new alpha::PolygonColliderComponent(vertices, 0.f));
+		AddGameObject(m_testPolygon);
+
 		m_groundObject = alpha::GameObject();
 		m_groundObject.AddComponent(new alpha::QuadComponent(0, glm::vec2(20.f), glm::vec2(20.f)));
 		AddGameObject(m_groundObject);
@@ -87,6 +104,8 @@ public:
 
 		alpha::ResourceManager::Textures["wall"].Bind();
 		m_testObject.Draw(*m_shader);
+		m_testCircle.Draw(*m_shader);
+		m_testPolygon.Draw(*m_shader);
 	}
 
 private:
@@ -99,6 +118,8 @@ private:
 
 	alpha::GameObject m_testObject;
 	alpha::GameObject m_groundObject;
+	alpha::GameObject m_testCircle;
+	alpha::GameObject m_testPolygon;
 
 	std::shared_ptr<alpha::Shader> m_shader;
 	alpha::Sound m_sound;
