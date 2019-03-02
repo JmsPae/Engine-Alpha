@@ -54,6 +54,25 @@ public:
 		m_testObject.AddComponent< alpha::QuadColliderComponent>(glm::vec2(1), 0.f);
 		AddGameObject(m_testObject);
 
+		m_testCircle = alpha::GameObject();
+		m_testCircle.AddComponent<alpha::TransformComponent>(glm::vec2(4, 4), glm::vec2(1), 0.0f);
+		m_testCircle.AddComponent(new alpha::QuadComponent());
+		m_testCircle.AddComponent(new alpha::CircleColliderComponent(0.5f, 0.f));
+		AddGameObject(m_testCircle);
+
+		m_testPolygon = alpha::GameObject();
+		m_testPolygon.AddComponent<alpha::TransformComponent>(glm::vec2(-4, 4), glm::vec2(1), 0.0f);
+		m_testPolygon.AddComponent(new alpha::QuadComponent());
+		auto vertices = std::vector<glm::vec2>{
+			glm::vec2(-1, 2),
+			glm::vec2(-1, 0),
+			glm::vec2(0, -3),
+			glm::vec2(1, 0),
+			glm::vec2(1, 1)
+		};
+		m_testPolygon.AddComponent(new alpha::PolygonColliderComponent(vertices, 0.f));
+		AddGameObject(m_testPolygon);
+
 		m_groundObject = alpha::GameObject();
 		m_groundObject.AddComponent<alpha::TransformComponent>();
 		m_groundObject.AddComponent<alpha::QuadComponent>(0, glm::vec2(20.f), glm::vec2(20.f));
@@ -81,7 +100,7 @@ public:
 		m_shader->SendUniform("Transform", glm::translate(glm::vec3(0.5, 0, 0)));
 
 		m_camera.Draw(*m_shader, (float)MainGame->GetWindow()->SizeX / (float)MainGame->GetWindow()->SizeY);
-		
+
 		alpha::ResourceManager::Textures["ground"].Bind();
 		m_groundObject.Draw(*m_shader);
 
@@ -91,6 +110,8 @@ public:
 
 		alpha::ResourceManager::Textures["wall"].Bind();
 		m_testObject.Draw(*m_shader);
+		m_testCircle.Draw(*m_shader);
+		m_testPolygon.Draw(*m_shader);
 	}
 
 private:
@@ -103,6 +124,8 @@ private:
 
 	alpha::GameObject m_testObject;
 	alpha::GameObject m_groundObject;
+	alpha::GameObject m_testCircle;
+	alpha::GameObject m_testPolygon;
 
 	std::shared_ptr<alpha::Shader> m_shader;
 	alpha::Sound m_sound;

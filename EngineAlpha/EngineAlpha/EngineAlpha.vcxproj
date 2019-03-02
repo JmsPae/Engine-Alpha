@@ -22,6 +22,8 @@
     <ClInclude Include="EngineAlpha\Audio\AudioManager.h" />
     <ClInclude Include="EngineAlpha\Audio\AudioFile.h" />
     <ClInclude Include="EngineAlpha\Components\AudioPlayerComponent.h" />
+    <ClInclude Include="EngineAlpha\Components\CircleColliderComponent.h" />
+    <ClInclude Include="EngineAlpha\Components\PolygonColliderComponent.h" />
     <ClInclude Include="EngineAlpha\Components\TransformComponent.h" />
     <ClInclude Include="EngineAlpha\Core\Log.h" />
     <ClInclude Include="EngineAlpha\Core\Signal.h" />
@@ -55,6 +57,8 @@
     <ClCompile Include="EngineAlpha\Audio\AudioManager.cpp" />
     <ClCompile Include="EngineAlpha\Audio\AudioFile.cpp" />
     <ClCompile Include="EngineAlpha\Components\AudioPlayerComponent.cpp" />
+    <ClCompile Include="EngineAlpha\Components\CircleColliderComonent.cpp" />
+    <ClCompile Include="EngineAlpha\Components\PolygonColliderComponent.cpp" />
     <ClCompile Include="EngineAlpha\Components\TransformComponent.cpp" />
     <ClCompile Include="EngineAlpha\Core\Log.cpp" />
     <ClCompile Include="EngineAlpha\Graphics\Color.cpp" />
