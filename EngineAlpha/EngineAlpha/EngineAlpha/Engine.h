@@ -21,6 +21,7 @@
 #include "Components/AudioPlayerComponent.h"
 #include "Components/QuadComponent.h"
 #include "Components/QuadColliderComponent.h"
+#include "Components/TransformComponent.h"
 
 #include "Physics/PhysicsWorld.h"
 #include "Physics/RayCaster.h"
