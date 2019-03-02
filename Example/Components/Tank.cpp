@@ -1,7 +1,13 @@
 #include "Tank.h"
 
 namespace game {
-	Tank::Tank(float health) : Health(health), TurretDir(), m_tracerComponent(new alpha::QuadComponent()), m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)), m_quadComponent(new alpha::QuadComponent()), m_turretQuadComponent(new alpha::QuadComponent()) {
+	Tank::Tank(float health)
+		: Health(health),
+		TurretDir(),
+		m_tracerComponent(new alpha::QuadComponent()),
+		m_colliderComponent(new alpha::QuadColliderComponent(glm::vec2(0.975f, 0.7f), 60000.f)),
+		m_quadComponent(new alpha::QuadComponent()),
+		m_turretQuadComponent(new alpha::QuadComponent()) {
 
 		auto audioFile = new alpha::AudioFile();
 		audioFile->LoadFile("test.wav");
@@ -16,6 +22,7 @@ namespace game {
 		Parent->AddComponent(m_quadComponent);
 		Parent->AddComponent(m_tracerComponent);
 		Parent->AddComponent(m_audioPlayer);
+		m_turretObject.AddComponent<alpha::TransformComponent>();
 		m_turretObject.AddComponent(m_turretQuadComponent);
 
 		TankInit();
@@ -24,8 +31,9 @@ namespace game {
 	void Tank::Update(float dt) {
 		TankUpdate(dt);
 		
-		m_turretObject.Position = Parent->Position;
-		m_turretObject.Rotation = atan2f(TurretDir.y, TurretDir.x);
+		auto& turrentTransform = m_turretObject.GetTransformComponent();
+		turrentTransform.Position = Parent->GetTransformComponent().Position;
+		turrentTransform.Rotation = atan2f(TurretDir.y, TurretDir.x);
 		m_turretObject.Update(dt);
 	}
 
@@ -44,12 +52,13 @@ namespace game {
 		m_audioPlayer->Play();
 
 		alpha::RayCaster raycast;
-		auto callback = raycast.CastRay(Parent->Position, Parent->Position + TurretDir * 100.f);
+		auto position = Parent->GetTransformComponent().Position;
+		auto callback = raycast.CastRay(position, position + TurretDir * 100.f);
 		if (callback.Hit) {
 			printf("Hit! \n");
 			callback.Collider->SetVelocity(callback.Collider->GetVelocity() + callback.RayDirection * 0.25f);
 
-			auto tankComp = (Tank*)callback.Collider->Parent->GetComponent<Tank>();
+			auto tankComp = callback.Collider->Parent->GetComponent<Tank>();
 			if (tankComp) {
 				tankComp->Health -= damage;
 				printf("%f \n", tankComp->Health);
@@ -66,7 +75,8 @@ namespace game {
 	}
 
 	void Tank::SetDirection(glm::vec2 dir) {
-		m_colliderComponent->SetRotation(atan2f(dir.y - Parent->Position.y, dir.x - Parent->Position.x));
+		auto pos = Parent->GetTransformComponent().Position;
+		m_colliderComponent->SetRotation(atan2f(dir.y - pos.y, dir.x - pos.x));
 	}
 
 	float Tank::GetRotation() {

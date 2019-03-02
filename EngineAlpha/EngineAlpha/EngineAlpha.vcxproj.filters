@@ -91,6 +91,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="EngineAlpha\Components\PolygonColliderComponent.cpp">
+    <ClCompile Include="EngineAlpha\Components\TransformComponent.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -185,10 +186,14 @@
     <ClInclude Include="EngineAlpha\EntryPoint.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="EngineAlpha\Components\CircleColliderComponent.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EngineAlpha\Components\PolygonColliderComponent.h">
+=======
+    <ClInclude Include="EngineAlpha\Components\TransformComponent.h">
+>>>>>>> master
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,9 @@
 #include "GameObject.h"
 
+#include "../Components/TransformComponent.h"
+
 namespace alpha {
-	GameObject::GameObject(glm::vec2 position, float rotation) : Position(position), Rotation(rotation), Transform(glm::rotate(rotation, glm::vec3(0, 0, 1)) * glm::translate(glm::vec3(position, 0))) {
-		
+	GameObject::GameObject() {
 	}
 
 	void GameObject::_SetScene(Scene *scene) {
@@ -20,8 +21,6 @@ namespace alpha {
 			if (m_components[i])
 				m_components[i]->Update(dt);
 		}
-
-		Transform = glm::translate(glm::vec3(Position, 0)) * glm::rotate(Rotation, glm::vec3(0, 0, 1));
 	}
 
 	void GameObject::Draw(Shader &shader) {
@@ -40,6 +39,14 @@ namespace alpha {
 
 	Scene *GameObject::GetScene() {
 		return m_scene;
+	}
+
+	glm::mat4 GameObject::GetTransform() {
+		return GetTransformComponent().GetTransform();
+	}
+
+	TransformComponent& GameObject::GetTransformComponent() {
+		return *GetComponent<TransformComponent>();
 	}
 
 	GameObject::~GameObject() {

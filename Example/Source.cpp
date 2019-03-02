@@ -44,12 +44,14 @@ public:
 
 
 		m_playerObject = alpha::GameObject();
-		m_playerObject.AddComponent(new game::Player(MainGame->GetInputManager()));
+		m_playerObject.AddComponent< alpha::TransformComponent>();
+		m_playerObject.AddComponent<game::Player>((MainGame->GetInputManager()));
 		AddGameObject(m_playerObject);
 
-		m_testObject = alpha::GameObject(glm::vec2(0, 1.5f));
-		m_testObject.AddComponent(new alpha::QuadComponent());
-		m_testObject.AddComponent(new alpha::QuadColliderComponent(glm::vec2(1), 0.f));
+		m_testObject = alpha::GameObject();
+		m_testObject.AddComponent< alpha::TransformComponent>(glm::vec2(0, 1.5f), glm::vec2(1), 0.0f);
+		m_testObject.AddComponent<alpha::QuadComponent>();
+		m_testObject.AddComponent< alpha::QuadColliderComponent>(glm::vec2(1), 0.f);
 		AddGameObject(m_testObject);
 
 		m_testCircle = alpha::GameObject(glm::vec2(4, 4));
@@ -70,11 +72,13 @@ public:
 		AddGameObject(m_testPolygon);
 
 		m_groundObject = alpha::GameObject();
-		m_groundObject.AddComponent(new alpha::QuadComponent(0, glm::vec2(20.f), glm::vec2(20.f)));
+		m_groundObject.AddComponent<alpha::TransformComponent>();
+		m_groundObject.AddComponent<alpha::QuadComponent>(0, glm::vec2(20.f), glm::vec2(20.f));
 		AddGameObject(m_groundObject);
 
-		m_enemyObject = alpha::GameObject(glm::vec2(0, 3.5f));
-		m_enemyObject.AddComponent(new game::Enemy((game::Player*)m_playerObject.GetComponent<game::Player>()));
+		m_enemyObject = alpha::GameObject();
+		m_enemyObject.AddComponent<alpha::TransformComponent>(glm::vec2(0, 3.5f), glm::vec2(1), 0.0f);
+		m_enemyObject.AddComponent<game::Enemy>(m_playerObject.GetComponent<game::Player>());
 		AddGameObject(m_enemyObject);
 
 		m_camera.Zoom = 1.f / 4;
@@ -84,7 +88,7 @@ public:
 		Time += dt;
 		UpdateGameObjects(dt);
 		alpha::PhysicsWorld::MainWorld.Update(dt);
-		m_camera.Position = m_playerObject.Position;
+		m_camera.Position = m_playerObject.GetTransformComponent().Position;
 	}
 
 	void Draw() override {

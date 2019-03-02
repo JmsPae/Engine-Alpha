@@ -6,7 +6,9 @@ namespace game {
 	}
 
 	void EnemyManager::AddEnemy(glm::vec2 position) {
-		m_enemies.push_back(alpha::GameObject(position));
+		auto go = alpha::GameObject();
+		go.AddComponent<alpha::TransformComponent>(position, glm::vec2(1), 0.0f);
+		m_enemies.push_back(go);
 
 	}
 
