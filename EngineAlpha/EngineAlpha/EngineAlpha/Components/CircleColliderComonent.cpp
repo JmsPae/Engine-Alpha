@@ -1,5 +1,7 @@
 #include "CircleColliderComponent.h"
 
+#include "../Core/GameObject.h"
+
 namespace alpha {
 	CircleColliderComponent::CircleColliderComponent(float radius, float mass) : Radius(radius), Mass(mass) {
 
@@ -7,7 +9,8 @@ namespace alpha {
 
 	void CircleColliderComponent::Init() {
 
-		CreateBody(Parent->Position, Parent->Rotation,
+		auto parentTransform = Parent->GetTransformComponent();
+		CreateBody(parentTransform.Position, parentTransform.Rotation,
 			Mass > 0.f ? b2_dynamicBody : b2_staticBody);
 		m_shape.m_p.Set(0, 0);
 		m_shape.m_radius = Radius;

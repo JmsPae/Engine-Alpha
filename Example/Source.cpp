@@ -54,12 +54,14 @@ public:
 		m_testObject.AddComponent< alpha::QuadColliderComponent>(glm::vec2(1), 0.f);
 		AddGameObject(m_testObject);
 
-		m_testCircle = alpha::GameObject(glm::vec2(4, 4));
+		m_testCircle = alpha::GameObject();
+		m_testCircle.AddComponent<alpha::TransformComponent>(glm::vec2(4, 4), glm::vec2(1), 0.0f);
 		m_testCircle.AddComponent(new alpha::QuadComponent());
 		m_testCircle.AddComponent(new alpha::CircleColliderComponent(0.5f, 0.f));
 		AddGameObject(m_testCircle);
 
-		m_testPolygon = alpha::GameObject(glm::vec2(-4, 4));
+		m_testPolygon = alpha::GameObject();
+		m_testPolygon.AddComponent<alpha::TransformComponent>(glm::vec2(-4, 4), glm::vec2(1), 0.0f);
 		m_testPolygon.AddComponent(new alpha::QuadComponent());
 		auto vertices = std::vector<glm::vec2>{
 			glm::vec2(-1, 2),
@@ -98,7 +100,7 @@ public:
 		m_shader->SendUniform("Transform", glm::translate(glm::vec3(0.5, 0, 0)));
 
 		m_camera.Draw(*m_shader, (float)MainGame->GetWindow()->SizeX / (float)MainGame->GetWindow()->SizeY);
-		
+
 		alpha::ResourceManager::Textures["ground"].Bind();
 		m_groundObject.Draw(*m_shader);
 

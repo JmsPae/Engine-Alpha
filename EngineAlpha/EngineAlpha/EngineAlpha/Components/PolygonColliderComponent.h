@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "BaseColliderComponent.h"
 
 namespace alpha {

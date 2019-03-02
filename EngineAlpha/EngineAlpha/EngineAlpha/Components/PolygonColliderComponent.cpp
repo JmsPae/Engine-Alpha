@@ -1,5 +1,7 @@
 #include "PolygonColliderComponent.h"
 
+#include "../Core/GameObject.h"
+
 namespace alpha {
 	PolygonColliderComponent::PolygonColliderComponent(const std::vector<glm::vec2>& vertices, float mass)
 		: Vertices(vertices), Mass(mass) {
@@ -8,7 +10,8 @@ namespace alpha {
 
 	void PolygonColliderComponent::Init() {
 
-		CreateBody(Parent->Position, Parent->Rotation,
+		auto parentTransform = Parent->GetTransformComponent();
+		CreateBody(parentTransform.Position, parentTransform.Rotation,
 			Mass > 0.f ? b2_dynamicBody : b2_staticBody);
 
 		std::vector<b2Vec2> b2Vertices;
