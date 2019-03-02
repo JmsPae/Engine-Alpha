@@ -2,6 +2,10 @@
 
 https://trello.com/b/WPf6CoEn/engine-alpha
 
+## Documentation and how to get started
+You can find the manual for Engine-Alpha and a guide on how the get started at
+[docs.Engine-Alpha](https://unpause.github.io/docs.Engine-Alpha/)
+
 ## How to create a game
 1. Include `Engine.h` in your main source file.
 2. `#define ALPHA_ENTRY_POINT` before the `Engine.h` header file.
