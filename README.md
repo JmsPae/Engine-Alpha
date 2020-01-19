@@ -12,3 +12,5 @@ You can find the manual for Engine-Alpha and a guide on how the get started at
 3. Create a function `alpha::Scene* alpha::CreateMainScene()` returning a pointer to your main scene.
 
 If you want to define your own entry point only do step 1 and define your own entry point
+
+![Alpha](https://i.imgur.com/vNyRzwO.png)
